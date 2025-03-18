@@ -1,0 +1,116 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Gậy Bida Mezz Ignite",
+      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
+      "price": 9200,
+      "discountPercentage": 8,
+      "rating": 4.8,
+      "stock": 10,
+      "brand": "Mezz",
+      "category": "Gậy cao cấp",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy1rqvRgUzcVKWcQftEh53cSvcaet_R74oQ&s"
+    },
+    {
+      "id": 2,
+      "title": "Gậy Bida Fury",
+      "description": "Gậy bida Fury dành cho người mới chơi, độ bền cao, giá cả hợp lý.",
+      "price": 6500,
+      "discountPercentage": 5,
+      "rating": 4.5,
+      "stock": 15,
+      "brand": "Fury",
+      "category": "Gậy bình dân",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy1rqvRgUzcVKWcQftEh53cSvcaet_R74oQ&s"
+    },
+    {
+      "id": 3,
+      "title": "Gậy Bida Predator Revo",
+      "description": "Gậy bida Predator Revo với công nghệ tiên tiến, giúp người chơi kiểm soát tốt hơn.",
+      "price": 12500,
+      "discountPercentage": 10,
+      "rating": 4.9,
+      "stock": 5,
+      "brand": "Predator",
+      "category": "Gậy cao cấp",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy1rqvRgUzcVKWcQftEh53cSvcaet_R74oQ&s"
+    },
+    {
+      "title": "Gậy Bida Mezz Ignite",
+      "price": "9200",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy1rqvRgUzcVKWcQftEh53cSvcaet_R74oQ&s",
+      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
+      "category": "Gậy vip",
+      "id": 5
+    },
+    {
+      "title": "Gậy Bida Mezz Ignite",
+      "price": "9200",
+      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
+      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
+      "category": "Gậy vip",
+      "id": 6
+    },
+    {
+      "title": "Gậy Bida Mezz Ignite",
+      "price": "9200",
+      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
+      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
+      "category": "Gậy vip",
+      "id": 7
+    },
+    {
+      "title": "Gậy Bida Mezz Ignite",
+      "price": "9200",
+      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
+      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
+      "category": "Gậy vip",
+      "id": 8
+    },
+    {
+      "title": "Gậy Bida Mezz Ignite",
+      "price": "9200",
+      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
+      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
+      "category": "Gậy vip",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "dob": "2004-06-20",
+      "gender": "male",
+      "email": "chinhpd5@fpt.edu.vn",
+      "password": "$2a$10$24zfo6QIQrgXP5pIMTbxYOUUpP9BGtGXZZhpnBYSyv/k1OY8XyVXu",
+      "username": "admin1"
+    },
+    {
+      "id": 2,
+      "dob": "2004-10-30",
+      "gender": "female",
+      "email": "chinhpd51@fpt.edu.vn",
+      "password": "$2a$10$m86I0BaxLW/7brmf4eZr8emxi7Ba.jEI81z/ShopuXfCCb7VWPeP2",
+      "username": "admin2"
+    },
+    {
+      "id": 3,
+      "email": "minhlvph491433@gmail.com",
+      "password": "$2a$10$Uifrfc9n.iGaffIiyeM1K.Gfk3lyq7yUF3aU0P2Wokteixxy0m/Fe",
+      "username": "minh1"
+    },
+    {
+      "id": 4,
+      "email": "minhlvph4914333@gmail.com",
+      "password": "$2a$10$VmK7c3dfeyquS4Tk1HTVaOnhdIvh/7fJyvNSUbDjw8xgkMWYmyAW.",
+      "username": "minh2"
+    },
+    {
+      "email": "minhlvph49143@gmail.com",
+      "password": "$2a$10$GhGWSq306t6MvVtyRoeKVeIImUmSHRHC3QxiYLRRPpQTIFS0kVWOO",
+      "username": "minh",
+      "id": 5
+    }
+  ]
+}
