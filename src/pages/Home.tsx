@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { useCart } from "../context/CartContext"; // Import Context giỏ hàng
 import IProduct from "../interfaces/product";
-import "./Home.css";
+import "./css/styles.css";
 
 function Home() {
   const [products, setProducts] = useState<IProduct[]>([]);

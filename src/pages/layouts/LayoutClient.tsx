@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import "../Home.css";
+import "../css/styles.css";
 import { useCart } from "../../context/CartContext";
 
 function LayoutClient() {

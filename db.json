@@ -35,46 +35,6 @@
       "brand": "Predator",
       "category": "Gậy cao cấp",
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy1rqvRgUzcVKWcQftEh53cSvcaet_R74oQ&s"
-    },
-    {
-      "title": "Gậy Bida Mezz Ignite",
-      "price": "9200",
-      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy1rqvRgUzcVKWcQftEh53cSvcaet_R74oQ&s",
-      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
-      "category": "Gậy vip",
-      "id": 5
-    },
-    {
-      "title": "Gậy Bida Mezz Ignite",
-      "price": "9200",
-      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
-      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
-      "category": "Gậy vip",
-      "id": 6
-    },
-    {
-      "title": "Gậy Bida Mezz Ignite",
-      "price": "9200",
-      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
-      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
-      "category": "Gậy vip",
-      "id": 7
-    },
-    {
-      "title": "Gậy Bida Mezz Ignite",
-      "price": "9200",
-      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
-      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
-      "category": "Gậy vip",
-      "id": 8
-    },
-    {
-      "title": "Gậy Bida Mezz Ignite",
-      "price": "9200",
-      "thumbnail": "https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2024/09/25/galaxy-tab-s10-plus-moonstone-blue-product-image-combo.png",
-      "description": "Gậy bida Mezz Ignite sử dụng công nghệ Carbon tiên tiến, độ chính xác cao.",
-      "category": "Gậy vip",
-      "id": 9
     }
   ],
   "users": [
@@ -96,21 +56,73 @@
     },
     {
       "id": 3,
+      "dob": "2003-08-15",
+      "gender": "male",
       "email": "minhlvph491433@gmail.com",
       "password": "$2a$10$Uifrfc9n.iGaffIiyeM1K.Gfk3lyq7yUF3aU0P2Wokteixxy0m/Fe",
       "username": "minh1"
     },
     {
       "id": 4,
+      "dob": "2003-12-05",
+      "gender": "male",
       "email": "minhlvph4914333@gmail.com",
       "password": "$2a$10$VmK7c3dfeyquS4Tk1HTVaOnhdIvh/7fJyvNSUbDjw8xgkMWYmyAW.",
       "username": "minh2"
     },
     {
+      "id": 5,
+      "dob": "2002-09-30",
+      "gender": "female",
       "email": "minhlvph49143@gmail.com",
       "password": "$2a$10$GhGWSq306t6MvVtyRoeKVeIImUmSHRHC3QxiYLRRPpQTIFS0kVWOO",
-      "username": "minh",
-      "id": 5
+      "username": "minh"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "customer": {
+        "name": "Nguyễn Văn A",
+        "phone": "0987654321",
+        "address": "Hà Nội"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "quantity": 2
+        }
+      ],
+      "total": 18400,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-19T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "customer": {
+        "name": "Trần Thị B",
+        "phone": "0971234567",
+        "address": "Hồ Chí Minh"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Gậy Bida Predator Revo",
+          "price": 12500,
+          "quantity": 1
+        }
+      ],
+      "total": 19000,
+      "status": "Chờ xác nhận",
+      "createdAt": "2025-03-18T14:00:00Z"
     }
   ]
 }

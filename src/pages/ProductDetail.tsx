@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCart } from "../context/CartContext"; // Import Context giỏ hàng
+import { useCart } from "../context/CartContext"; 
 import IProduct from "../interfaces/product";
 
 function ProductDetail() {
   const { id } = useParams();
-  const { addToCart } = useCart(); // Lấy hàm thêm vào giỏ hàng
+  const { addToCart } = useCart();
   const [product, setProduct] = useState<IProduct | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [addedToCart, setAddedToCart] = useState(false); // Trạng thái thông báo
+  const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
+    if (!id) return;
+
     const fetchProduct = async () => {
       try {
         const res = await fetch(`http://localhost:3000/products/${id}`);
@@ -30,7 +32,9 @@ function ProductDetail() {
   }, [id]);
 
   const handleAddToCart = () => {
-    if (product) {
+    if (!product) return;
+
+    try {
       addToCart({
         id: product.id,
         name: product.title, 
@@ -39,20 +43,21 @@ function ProductDetail() {
         quantity: 1, 
       });
 
-      setAddedToCart(true); // Hiển thị thông báo đã thêm vào giỏ hàng
-
+      setAddedToCart(true);
       setTimeout(() => {
-        setAddedToCart(false); // Ẩn thông báo sau 2 giây
+        setAddedToCart(false);
       }, 2000);
+    } catch (error) {
+      console.error("Lỗi khi thêm vào giỏ hàng:", error);
     }
   };
 
-  if (loading) return <p className="text-center">Đang tải...</p>;
+  if (loading) return <p className="text-center text-warning">Đang tải...</p>;
 
   if (!product) return <p className="text-center text-danger">Sản phẩm không tồn tại!</p>;
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 text-warning"> {/* Áp dụng màu vàng cho toàn bộ */}
       <div className="row">
         {/* Hình ảnh sản phẩm */}
         <div className="col-md-6">
@@ -65,8 +70,8 @@ function ProductDetail() {
 
         {/* Thông tin sản phẩm */}
         <div className="col-md-6">
-          <h2 className="text-warning fw-bold">{product.title}</h2>
-          <p className="text-muted">Danh mục: <strong className="text-info">{product.category}</strong></p>
+          <h2 className="fw-bold">{product.title}</h2>
+          <p className="text-white">Danh mục: <strong className="text-white">{product.category}</strong></p>
           <h4 className="text-danger fw-bold">{product.price.toLocaleString()} VNĐ</h4>
           <p className="fw-light">{product.description}</p>
           <p>
@@ -79,9 +84,11 @@ function ProductDetail() {
             🛒 Thêm vào giỏ hàng
           </button>
 
-          {/* Thông báo khi thêm thành công */}
+          {/* Hiệu ứng thông báo khi thêm vào giỏ hàng */}
           {addedToCart && (
-            <p className="text-success mt-2 fw-bold">✔ Sản phẩm đã được thêm vào giỏ hàng!</p>
+            <div className="alert alert-success mt-2" role="alert">
+              ✔ Sản phẩm đã được thêm vào giỏ hàng!
+            </div>
           )}
         </div>
       </div>

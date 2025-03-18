@@ -1,4 +1,3 @@
-
 import { useForm } from "react-hook-form";
 import { Register as ResgiterInput } from "../interfaces/user";
 import toast from "react-hot-toast";
@@ -12,29 +11,25 @@ function Register() {
     formState: { errors },
     watch
   } = useForm<ResgiterInput>();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSubmit = async (data: ResgiterInput) => {
-    // console.log(data);
     try {
       data.confirmPassword = undefined;
-      await axios.post(`http://localhost:3000/register`, data)
+      await axios.post(`http://localhost:3000/register`, data);
       toast.success("Đăng ký thành công");
-      navigate('/login')
+      navigate("/login");
     } catch (error: any) {
-      // console.log(error);
-      // toast.error((error as AxiosError)?.response?.data as string)
-      toast.error(error.response.data)
-
+      toast.error(error.response.data);
     }
-  }
+  };
 
   return (
     <div>
-      <h1>Đăng ký</h1>
+      <h1 className="text-white">Đăng ký</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
-          <label htmlFor="username" className="form-label">
+          <label htmlFor="username" className="form-label text-white">
             Username
           </label>
           <input
@@ -45,10 +40,12 @@ function Register() {
               required: "Không để trống Username"
             })}
           />
-          {errors?.username && <span className="text-danger">{errors?.username?.message}</span>}
+          {errors?.username && (
+            <span className="text-danger">{errors?.username?.message}</span>
+          )}
         </div>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
+          <label htmlFor="email" className="form-label text-white">
             Email address
           </label>
           <input
@@ -63,10 +60,12 @@ function Register() {
               }
             })}
           />
-          {errors?.email && <span className="text-danger">{errors?.email?.message}</span>}
+          {errors?.email && (
+            <span className="text-danger">{errors?.email?.message}</span>
+          )}
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
+          <label htmlFor="password" className="form-label text-white">
             Password
           </label>
           <input
@@ -81,10 +80,12 @@ function Register() {
               }
             })}
           />
-          {errors?.password && <span className="text-danger">{errors?.password?.message}</span>}
+          {errors?.password && (
+            <span className="text-danger">{errors?.password?.message}</span>
+          )}
         </div>
         <div className="mb-3">
-          <label htmlFor="confirmPassword" className="form-label">
+          <label htmlFor="confirmPassword" className="form-label text-white">
             Confirm Password
           </label>
           <input
@@ -94,11 +95,16 @@ function Register() {
             {...register("confirmPassword", {
               required: "Không để trống Confirm password",
               validate: (value) => {
-                return value == watch("password") || "Confirm password không trùng với password"
+                return (
+                  value == watch("password") ||
+                  "Confirm password không trùng với password"
+                );
               }
             })}
           />
-          {errors?.confirmPassword && <span className="text-danger">{errors?.confirmPassword?.message}</span>}
+          {errors?.confirmPassword && (
+            <span className="text-danger">{errors?.confirmPassword?.message}</span>
+          )}
         </div>
 
         <button type="submit" className="btn btn-primary">

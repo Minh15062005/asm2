@@ -1,32 +1,69 @@
 import { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { CartItem } from "../interfaces/Caritem";
+// import { CartItem } from "../interfaces/Caritem"; // Import kiểu dữ liệu chuẩn
 
 function Checkout() {
   const { cart, clearCart } = useCart();
   const navigate = useNavigate();
 
-  const [customerInfo, setCustomerInfo] = useState({
+  const [customerInfo, setCustomerInfo] = useState<{
+    name: string;
+    phone: string;
+    address: string;
+  }>({
     name: "",
     phone: "",
     address: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomerInfo({ ...customerInfo, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setCustomerInfo((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handlePayment = () => {
+  const validatePhone = (phone: string): boolean => {
+    return /^(0[3-9])[0-9]{8}$/.test(phone);
+  };
+
+  const handlePayment = async () => {
     if (!customerInfo.name || !customerInfo.phone || !customerInfo.address) {
       alert("Vui lòng nhập đầy đủ thông tin!");
       return;
     }
+    if (!validatePhone(customerInfo.phone)) {
+      alert("Số điện thoại không hợp lệ!");
+      return;
+    }
 
-    console.log("Đơn hàng đã đặt:", { cart, customerInfo });
+    const orderData = {
+      customer: customerInfo,
+      items: cart,
+      total: cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0),
+      status: "Đang xử lý",
+      createdAt: new Date().toISOString(),
+    };
 
-    alert("Đặt hàng thành công! Bạn sẽ thanh toán khi nhận hàng.");
-    clearCart(); // Xóa giỏ hàng sau khi thanh toán
-    navigate("/"); // Quay về trang chủ
+    try {
+      const response = await fetch("http://localhost:5000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) throw new Error("Lỗi khi đặt hàng!");
+
+      alert("🎉 Đặt hàng thành công! Bạn sẽ thanh toán khi nhận hàng.");
+      clearCart();
+      navigate("/");
+    } catch (error) {
+      console.error("Lỗi:", error);
+      alert("Có lỗi xảy ra! Vui lòng thử lại.");
+    }
   };
 
   return (
@@ -39,12 +76,12 @@ function Checkout() {
         <div>
           <h4>Thông tin đơn hàng</h4>
           <ul className="list-group">
-            {cart.map((item) => (
+            {cart.map((item: CartItem) => (
               <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
                 <img src={item.thumbnail} alt={item.name} style={{ width: "50px", height: "50px" }} />
                 <span>{item.name}</span>
                 <span>{item.price.toLocaleString()} VNĐ</span>
-                <span>x{item.quantity}</span>
+                <span>x{item.quantity || 1}</span>
               </li>
             ))}
           </ul>
@@ -55,7 +92,7 @@ function Checkout() {
           <input type="text" name="address" className="form-control mb-2" placeholder="Địa chỉ nhận hàng" onChange={handleInputChange} />
 
           <button className="btn btn-success mt-3" onClick={handlePayment}>
-            Xác nhận đơn hàng
+            ✅ Xác nhận đơn hàng
           </button>
         </div>
       )}

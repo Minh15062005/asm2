@@ -15,6 +15,7 @@ import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import { AuthProvider } from "./context/AuthContext"; // Import AuthProvider
 import PrivateRoute from "./routes/PrivateRoute"; // Import PrivateRoute
+import AdminOrders from "./pages/admin/AdminOrders";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path="product" element={<List />} />
               <Route path="product/add" element={<Add />} />
               <Route path="product/edit/:id" element={<Edit />} />
+              <Route path="orders" element={<AdminOrders />} /> {/* Thêm quản lý đơn hàng */}
             </Route>
           {/* </Route> */}
 
