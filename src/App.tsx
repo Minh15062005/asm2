@@ -15,6 +15,7 @@ import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import { AuthProvider } from "./context/AuthContext"; // Import AuthProvider
 import PrivateRoute from "./routes/PrivateRoute"; // Import PrivateRoute
+import OrderStatus from "./pages/product/status";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="/order-status" element={<OrderStatus />} />
           </Route>
 
           {/* Dùng PrivateRoute để bảo vệ Admin */}
