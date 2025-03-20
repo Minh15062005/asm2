@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import "../Home.css";
+import "../css/styles.css";
 import { useCart } from "../../context/CartContext";
 
 function LayoutClient() {
@@ -27,16 +27,19 @@ function LayoutClient() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <Link className="nav-link text-light" to="/products">🛍️ Sản phẩm</Link>
+                <Link className="nav-link text-light" to="/products">🛍️ Sản phẩm nổi bật</Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link text-light" to="/news">📰 Tin tức</Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/about">ℹ️ Giới thiệu</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link text-light" to="/orders">📦 Đơn hàng của bạn</Link>
+              </li>
             </ul>
-            
+
             {/* 🛒 Giỏ hàng */}
             <Link className="btn btn-outline-light position-relative me-3" to="/cart">
               🛒 Giỏ hàng
@@ -58,13 +61,6 @@ function LayoutClient() {
       <div className="container mt-4">
         <Outlet />
       </div>
-
-      {/* 🚀 Footer */}
-      {/* <footer className="footer text-center py-5 bg-dark text-light">
-        <div className="container">
-          <p className="m-0 small">&copy; 2025 Website của bạn. All rights reserved.</p>
-        </div>
-      </footer> */}
     </>
   );
 }

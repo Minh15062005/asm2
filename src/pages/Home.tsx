@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate, Link } from "react-router-dom"; 
 import { useCart } from "../context/CartContext"; // Import Context giỏ hàng
 import IProduct from "../interfaces/product";
-import "./Home.css";
+import "./css/styles.css";
 
 function Home() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -43,7 +43,7 @@ function Home() {
   return (
     <div>
       {/* Header */}
-      <header className="text-center text-faded d-none d-lg-block">
+      <header className="text-center text-faded d-none d-lg-block mb-4">
         <h1 className="site-heading">
           <span className="site-heading-upper text-primary mb-3">Product Showcase</span>
           <span className="site-heading-lower">Our Featured Items</span>
@@ -52,25 +52,25 @@ function Home() {
 
       {/* Navigation */}
       <nav className="navbar navbar-expand-lg navbar-dark py-lg-4">
-  <div className="container">
-    <a className="navbar-brand text-uppercase fw-bold" href="#">Product Store</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav mx-auto">
-        <li className="nav-item"><a className="nav-link" href="#">Home</a></li>
-        <li className="nav-item"><a className="nav-link" href="#">Products</a></li>
-        <li className="nav-item"><a className="nav-link" href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+        <div className="container">
+          <Link className="navbar-brand text-uppercase fw-bold" to="/">Product Store</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav mx-auto">
+              <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/products">Products</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
       {/* Danh sách sản phẩm */}
       <section className="page-section">
         <div className="container">
-          <h2 className="text-center text-primary">Danh sách sản phẩm</h2>
+          <h2 className="text-center text-primary mb-4">Danh sách sản phẩm</h2>
           <div className="row g-4">
             {products.map((product) => (
               <div key={product.id} className="col-lg-3 col-md-4 col-6">
@@ -82,7 +82,7 @@ function Home() {
                     onClick={() => navigate(`/product/${product.id}`)}
                     style={{ cursor: "pointer" }}
                   />
-                  <div className="card-body">
+                  <div className="card-body text-center">
                     <h5 
                       className="card-title" 
                       onClick={() => navigate(`/product/${product.id}`)}
@@ -90,7 +90,7 @@ function Home() {
                     >
                       {product.title}
                     </h5>
-                    <p className="card-text">{product.price} VND</p>
+                    <p className="card-text">{product.price.toLocaleString()} VND</p>
                     <button className="btn btn-success w-100" onClick={() => handleBuyNow(product)}>
                       🛒 Mua hàng
                     </button>
@@ -103,9 +103,9 @@ function Home() {
       </section>
 
       {/* Sản phẩm nổi bật */}
-      <section className="page-section">
+      <section className="page-section bg-light">
         <div className="container">
-          <h2 className="text-center text-danger">✨ Sản phẩm nổi bật ✨</h2>
+          <h2 className="text-center text-danger mb-4">✨ Sản phẩm nổi bật ✨</h2>
           <div className="row g-4">
             {featuredProducts.map((product) => (
               <div key={product.id} className="col-lg-3 col-md-4 col-6">
@@ -114,10 +114,10 @@ function Home() {
                     src={product.thumbnail} 
                     className="card-img-top" 
                     alt={product.title} 
-                    onClick={() => navigate(`/product/${product.id}`)}
+                    onClick={() => navigate(`/products/${product.id}`)}
                     style={{ cursor: "pointer" }}
                   />
-                  <div className="card-body">
+                  <div className="card-body text-center">
                     <h5 
                       className="card-title" 
                       onClick={() => navigate(`/product/${product.id}`)}
@@ -125,7 +125,7 @@ function Home() {
                     >
                       {product.title}
                     </h5>
-                    <p className="card-text">{product.price} VND</p>
+                    <p className="card-text">{product.price.toLocaleString()} VND</p>
                     <button className="btn btn-warning w-100" onClick={() => handleBuyNow(product)}>
                       🛒 Mua ngay
                     </button>
@@ -138,11 +138,34 @@ function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer text-center">
-  <div className="container">
-    <p className="m-0 small">&copy; Your Website 2023</p>
-  </div>
-</footer>
+      <footer className="bg-dark text-light text-center py-4">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+              <h5>Liên hệ</h5>
+              <p>Địa chỉ: Trịnh Văn Bô</p>
+              <p>Email: bildas@gmail.com</p>
+              <p>Điện thoại: 0963802138</p>
+            </div>
+            <div className="col-md-4">
+              <h5>Thông tin</h5>
+              <ul className="list-unstyled">
+                <li><Link className="text-light" to="/about">Giới thiệu</Link></li>
+                <li><Link className="text-light" to="/news">Tin tức</Link></li>
+                <li><Link className="text-light" to="/products">Sản phẩm</Link></li>
+                <li><Link className="text-light" to="/orders">Đơn hàng của bạn</Link></li>
+              </ul>
+            </div>
+            <div className="col-md-4">
+              <h5>Mạng xã hội</h5>
+              <a href="https://facebook.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://instagram.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://twitter.com" className="text-light" target="_blank" rel="noopener noreferrer">Twitter</a>
+            </div>
+          </div>
+          <p className="mt-3 mb-0 small">&copy; WEBSITE BÁN GẬY BLIDA</p>
+        </div>
+      </footer>
     </div>
   );
 }

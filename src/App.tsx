@@ -14,7 +14,9 @@ import { CartProvider } from "./context/CartContext";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import { AuthProvider } from "./context/AuthContext"; // Import AuthProvider
-import PrivateRoute from "./routes/PrivateRoute"; // Import PrivateRoute
+import OrderList from "./pages/OrderList";
+import AdminOrders from "./pages/admin/AdminOrders";
+
 
 function App() {
   return (
@@ -29,17 +31,16 @@ function App() {
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="orders" element={<OrderList />} /> {/* Thêm quản lý đơn hàng */}
           </Route>
-
-          {/* Dùng PrivateRoute để bảo vệ Admin */}
           {/* <Route path="/admin" element={<PrivateRoute />}> */}
-            <Route path="/admin" element={<LayoutAdmin />}>
-              <Route path="product" element={<List />} />
-              <Route path="product/add" element={<Add />} />
-              <Route path="product/edit/:id" element={<Edit />} />
-            </Route>
+          <Route path="/admin" element={<LayoutAdmin />}>
+            <Route path="product" element={<List />} />
+            <Route path="product/add" element={<Add />} />
+            <Route path="product/edit/:id" element={<Edit />} />
+            <Route path="orders" element={<AdminOrders />} /> {/* Thêm quản lý đơn hàng */}
+          </Route>
           {/* </Route> */}
-
           <Route path="*" element={<h1>Not found</h1>} />
         </Routes>
         <Toaster />

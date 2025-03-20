@@ -10826,8 +10826,7 @@ textarea.form-control-lg {
   }
 }
 body {
-
-  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("https://thietkethicong.org/Uploads/files/00/bida1/l2024bida-9.jpg");
+  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../assets/img/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -11027,32 +11026,4 @@ p {
 
 .address strong {
   font-size: 1.2rem;
-}
-/* Home.css */
-
-/* Navigation Styles */
-.navbar {
-  background-color: #007bff; /* Màu xanh dương sáng */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
-}
-
-.nav-link {
-  color: #fff; /* Màu chữ trắng */
-  font-weight: bold; /* Chữ đậm */
-  transition: color 0.3s; /* Hiệu ứng chuyển màu */
-}
-
-.nav-link:hover {
-  color: #ffd700; /* Màu vàng khi hover */
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #0056b3; /* Màu xanh dương đậm */
-  color: #fff; /* Màu chữ trắng */
-  padding: 20px 0; /* Padding cho footer */
-}
-
-.footer p {
-  margin: 0; /* Xóa margin cho p */
 }
