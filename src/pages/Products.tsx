@@ -10,7 +10,7 @@ function FeaturedProducts() {
       try {
         const res = await fetch(`http://localhost:3000/products`);
         const data = await res.json();
-        
+
         if (data) {
           // Chỉ lấy 4 sản phẩm đầu tiên làm nổi bật
           setProducts(data.slice(0, 4));
@@ -30,8 +30,14 @@ function FeaturedProducts() {
         <div className="row g-4">
           {products.map((item: IProduct) => (
             <div key={item.id} className="col-lg-3 col-md-4 col-6">
-              <div className="card border-0 shadow-sm rounded-3 p-3 h-100">
-                <ProductItem {...item} />
+              <div className="card border-0 shadow-lg rounded-3 overflow-hidden h-100">
+                <img src={item.thumbnail} alt={item.title} className="card-img-top" style={{ height: '200px', objectFit: 'cover' }} />
+                <div className="card-body text-center">
+                  <h5 className="card-title">{item.title}</h5>
+                  <p className="card-text text-danger fw-bold">{item.price.toLocaleString()} VNĐ</p>
+                  <p className="card-text">{item.description}</p>
+                  <a href={`/product/${item.id}`} className="btn btn-primary">Mua ngay</a>
+                </div>
               </div>
             </div>
           ))}

@@ -57,21 +57,21 @@ function ProductDetail() {
   if (!product) return <p className="text-center text-danger">Sản phẩm không tồn tại!</p>;
 
   return (
-    <div className="container mt-5 text-warning"> {/* Áp dụng màu vàng cho toàn bộ */}
+    <div className="container mt-5 text-light"> {/* Áp dụng màu sáng cho toàn bộ */}
       <div className="row">
         {/* Hình ảnh sản phẩm */}
         <div className="col-md-6">
           <img 
             src={product.thumbnail} 
             alt={product.title} 
-            className="img-fluid rounded shadow-sm" 
+            className="img-fluid rounded shadow-lg" 
           />
         </div>
 
         {/* Thông tin sản phẩm */}
         <div className="col-md-6">
           <h2 className="fw-bold">{product.title}</h2>
-          <p className="text-white">Danh mục: <strong className="text-white">{product.category}</strong></p>
+          <p className="text-muted">Danh mục: <strong className="text-warning">{product.category}</strong></p>
           <h4 className="text-danger fw-bold">{product.price.toLocaleString()} VNĐ</h4>
           <p className="fw-light">{product.description}</p>
           <p>
@@ -80,7 +80,7 @@ function ProductDetail() {
           </p>
 
           {/* Nút Thêm vào giỏ hàng */}
-          <button className="btn btn-primary px-4 py-2" onClick={handleAddToCart}>
+          <button className="btn btn-warning px-4 py-2" onClick={handleAddToCart}>
             🛒 Thêm vào giỏ hàng
           </button>
 

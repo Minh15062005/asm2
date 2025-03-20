@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { CartItem } from "../interfaces/Caritem";
-// import { CartItem } from "../interfaces/Caritem"; // Import kiểu dữ liệu chuẩn
 
 function Checkout() {
   const { cart, clearCart } = useCart();
   const navigate = useNavigate();
-
-  const [customerInfo, setCustomerInfo] = useState<{
-    name: string;
-    phone: string;
-    address: string;
-  }>({
+  const [token, setToken] = useState<string | null>(null);
+  const [customerInfo, setCustomerInfo] = useState({
     name: "",
     phone: "",
     address: "",
   });
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    setToken(savedToken);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -39,6 +39,11 @@ function Checkout() {
       alert("Số điện thoại không hợp lệ!");
       return;
     }
+    if (!token) {
+      alert("Bạn chưa đăng nhập! Hãy đăng nhập trước khi thanh toán.");
+      navigate("/login");
+      return;
+    }
 
     const orderData = {
       customer: customerInfo,
@@ -49,9 +54,12 @@ function Checkout() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/orders", {
+      const response = await fetch("http://localhost:3000/orders", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(orderData),
       });
 
@@ -67,7 +75,7 @@ function Checkout() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 text-white"> {/* Thêm class text-white để đổi màu phông chữ */}
       <h2>🛍️ Thanh toán</h2>
 
       {cart.length === 0 ? (
