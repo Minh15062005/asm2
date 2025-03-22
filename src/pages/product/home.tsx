@@ -9,54 +9,7 @@ const HomeAdmin = () => {
   return (
     <div id="wrapper">
 
-      {/* Sidebar */}
-      <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/admin">
-          <div className="sidebar-brand-icon rotate-n-15">
-            <i className="fas fa-laugh-wink"></i>
-          </div>
-          <div className="sidebar-brand-text mx-3">Admin Dashboard</div>
-        </Link>
 
-        <hr className="sidebar-divider my-0" />
-
-        <li className="nav-item active">
-          <Link className="nav-link" to="/admin/home">
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </Link>
-        </li>
-
-        <hr className="sidebar-divider" />
-
-        <div className="sidebar-heading">Quản lý</div>
-        
-        <li className="nav-item">
-          <Link className="nav-link" to="/admin/product">
-            <i className="fas fa-fw fa-box"></i>
-            <span>Sản phẩm</span>
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link className="nav-link" to="/admin/product/add">
-            <i className="fas fa-fw fa-plus"></i>
-            <span>Thêm sản phẩm</span>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/admin/orders">
-            <i className="fas fa-fw fa-plus"></i>
-            <span>Quản lý đơn hàng</span>
-          </Link>
-        </li>
-
-        <hr className="sidebar-divider d-none d-md-block" />
-
-        <div className="text-center d-none d-md-inline">
-          <button className="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-      </ul>
       {/* End of Sidebar */}
 
       {/* Content Wrapper */}
@@ -66,27 +19,21 @@ const HomeAdmin = () => {
         <div id="content">
 
           {/* Topbar */}
-          <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-            <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
-              <i className="fa fa-bars"></i>
-            </button>
 
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item dropdown no-arrow">
-                <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span className="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
-                  <img className="img-profile rounded-circle" src="img/undraw_profile.svg" alt="..." />
+
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item dropdown no-arrow">
+
+              <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a className="dropdown-item" href="#" onClick={logout}>
+                  <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Đăng xuất
                 </a>
-                <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a className="dropdown-item" href="#" onClick={logout}>
-                    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Đăng xuất
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-          {/* End of Topbar */}
+              </div>
+            </li>
+          </ul>
+
+
 
           {/* Page Content */}
           <div className="container-fluid">
@@ -259,30 +206,19 @@ const HomeAdmin = () => {
                   </div>
                   <div className="card-body">
                     <div className="text-center">
-                      <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '25rem' }} src="img/undraw_posting_photo.svg" alt="..." />
+                      <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: '25rem' }} src="../img/undraw_posting_photo.svg" alt="..." />
                     </div>
                     <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>.</p>
-                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+                    <a target="_blank" rel="nofollow" href="https:/undraw.co/">Browse Illustrations on unDraw &rarr;</a>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
-          {/* End of Page Content */}
-
         </div>
-        {/* End of Main Content */}
 
-        {/* Footer */}
-        <footer className="sticky-footer bg-white">
-          <div className="container my-auto">
-            <div className="copyright text-center my-auto">
-              <span>&copy; 2025 Admin Dashboard</span>
-            </div>
-          </div>
-        </footer>
-        {/* End of Footer */}
+
+
 
       </div>
       {/* End of Content Wrapper */}

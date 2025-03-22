@@ -1,9 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
 import "../css/styles.css";
 import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext"; // Import AuthContext
+
 
 function LayoutClient() {
   const { cart } = useCart(); // Lấy dữ liệu giỏ hàng
+  const { user, logout } = useAuth(); // Lấy thông tin user từ AuthContext
 
   return (
     <>
@@ -29,11 +32,8 @@ function LayoutClient() {
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/products">🛍️ Sản phẩm nổi bật</Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link text-light" to="/news">📰 Tin tức</Link>
-              </li> */}
               <li className="nav-item">
-                <Link className="nav-link text-light" to="/about">ℹ️ Giới thiệu</Link>
+                <Link className="nav-link text-light" to="/products">ℹ️ Giới thiệu</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/orders">📦 Đơn hàng của bạn</Link>
@@ -49,10 +49,19 @@ function LayoutClient() {
                 </span>
               )}
             </Link>
-            <div>
-              <Link className="btn btn-outline-light me-2" to="/login">🔑 Đăng nhập</Link>
-              <Link className="btn btn-warning" to="/register">📝 Đăng ký</Link>
-            </div>
+
+            {/* Hiển thị thông tin người dùng */}
+            {user ? (
+              <div className="d-flex align-items-center">
+                <span className="text-light me-3">👤 {user.name}</span>
+                <button className="btn btn-danger" onClick={logout}>🚪 Đăng xuất</button>
+              </div>
+            ) : (
+              <div>
+                <Link className="btn btn-outline-light me-2" to="/login">🔑 Đăng nhập</Link>
+                <Link className="btn btn-warning" to="/register">📝 Đăng ký</Link>
+              </div>
+            )}
           </div>
         </div>
       </nav>

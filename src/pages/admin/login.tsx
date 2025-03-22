@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../../components/Card"
 import { Button } from "../../components/button";
 import toast from "react-hot-toast";
 
-const Login = () => {
+const LoginAdmin = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -14,29 +14,39 @@ const Login = () => {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
-
+    
         try {
-            const response = await fetch("http://localhost:3000/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password }),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error || data.message || "Đăng nhập thất bại!");
+            // Gửi request tìm user theo email
+            const response = await fetch(`http://localhost:3000/users?email=${username}`);
+            const users = await response.json();
+    
+            if (users.length === 0) {
+                throw new Error("Người dùng không tồn tại!");
+            }
+    
+            const user = users[0];
+    
+            if (user.password !== password) {
+                throw new Error("Sai mật khẩu!");
+            }
+    
+            // Đăng nhập thành công
+            localStorage.setItem("token", "fake-jwt-token");
+            localStorage.setItem("user", JSON.stringify(user));
+            toast.success("Đăng nhập thành công!");
+    
+            if (user.role === "admin") {
+                navigate("/admin/product");
+            } else {
+                navigate("/product");
             }
 
-            localStorage.setItem("token", data.token); // Lưu token vào localStorage
-            toast.success("thành công")
-            navigate("/product"); // Điều hướng sau khi đăng nhập thành công
         } catch (error) {
             setError(error instanceof Error ? error.message : "Lỗi không xác định");
         }
     };
+    
+    
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-100">
@@ -75,4 +85,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginAdmin;
