@@ -95,25 +95,6 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "customer": {
-        "name": "Nguyễn Văn A",
-        "phone": "0987654321",
-        "address": "Hà Nội"
-      },
-      "items": [
-        {
-          "id": 1,
-          "name": "Gậy Bida Mezz Ignite",
-          "price": 9200,
-          "quantity": 2
-        }
-      ],
-      "total": 18400,
-      "status": "Đang xử lý",
-      "createdAt": "2025-03-19T12:00:00Z"
-    },
-    {
       "id": 2,
       "customer": {
         "name": "Trần Thị B",
@@ -135,7 +116,7 @@
         }
       ],
       "total": 19000,
-      "status": "Chờ xác nhận",
+      "status": "Đã hủy",
       "createdAt": "2025-03-18T14:00:00Z"
     },
     {
@@ -154,7 +135,7 @@
         }
       ],
       "total": 9200,
-      "status": "Đang xử lý",
+      "status": "Đã hoàn thành",
       "createdAt": "2025-03-19T08:22:06.080Z",
       "id": 3
     },
@@ -174,7 +155,7 @@
         }
       ],
       "total": 12500,
-      "status": "Đang xử lý",
+      "status": "Chưa xử lý",
       "createdAt": "2025-03-19T08:23:04.032Z",
       "id": 4
     },
@@ -197,46 +178,6 @@
       "status": "Đang xử lý",
       "createdAt": "2025-03-19T08:27:43.311Z",
       "id": 5
-    },
-    {
-      "customer": {
-        "name": "Mẹ của thiện",
-        "phone": "0974567899",
-        "address": "Thị Xã Nghi Sơn - Tỉnh Thanh Hóa"
-      },
-      "items": [
-        {
-          "id": 1,
-          "name": "Gậy Bida Mezz Ignite",
-          "price": 9200,
-          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
-          "quantity": 1
-        }
-      ],
-      "total": 9200,
-      "status": "Đang xử lý",
-      "createdAt": "2025-03-19T09:10:28.683Z",
-      "id": 6
-    },
-    {
-      "customer": {
-        "name": "lê văn minhok",
-        "phone": "0974567899",
-        "address": "ha noi"
-      },
-      "items": [
-        {
-          "id": 3,
-          "name": "Gậy Bida Predator Revo",
-          "price": 12500,
-          "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy1rqvRgUzcVKWcQftEh53cSvcaet_R74oQ&s",
-          "quantity": 1
-        }
-      ],
-      "total": 12500,
-      "status": "Đang xử lý",
-      "createdAt": "2025-03-19T09:11:40.554Z",
-      "id": 7
     },
     {
       "customer": {

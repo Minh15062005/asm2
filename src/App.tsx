@@ -16,6 +16,7 @@ import Home from "./pages/Home";
 import { AuthProvider } from "./context/AuthContext"; // Import AuthProvider
 import OrderList from "./pages/OrderList";
 import AdminOrders from "./pages/admin/AdminOrders";
+import HomeAdmin from "./pages/product/home";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="product/add" element={<Add />} />
             <Route path="product/edit/:id" element={<Edit />} />
             <Route path="orders" element={<AdminOrders />} /> {/* Thêm quản lý đơn hàng */}
+            <Route path="home" element={<HomeAdmin />} /> {/* Thêm quản lý đơn hàng */}
           </Route>
           {/* </Route> */}
           <Route path="*" element={<h1>Not found</h1>} />
