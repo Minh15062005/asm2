@@ -17,13 +17,17 @@ function Login() {
       const { data } = await axios.post("http://localhost:3000/login", dataInput);
       if (data) {
         localStorage.setItem("token", data.accessToken);
+        localStorage.setItem("user", JSON.stringify(data.user)); // Lưu thông tin user
       }
       toast.success("Đăng nhập thành công");
       navigate("/");
+      window.location.reload(); // Load lại trang sau khi đăng nhập thành công
     } catch (error: any) {
       toast.error(error.response.data);
     }
   };
+
+
 
   return (
     <div>

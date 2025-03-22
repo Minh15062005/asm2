@@ -1,49 +1,113 @@
 import { useAuth } from "../../context/AuthContext";
 import { Link, Outlet } from "react-router-dom";
-
+import '../css/sb-admin-2.css';  // Đảm bảo đường dẫn đúng
+import '../css/sb-admin-2.min.css';  // Đảm bảo đường dẫn đúng
 const LayoutAdmin = () => {
   const { logout } = useAuth();
 
   return (
-    <div className="d-flex flex-column vh-100">
-      {/* Header */}
-      <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between">
-        <Link className="navbar-brand" to="/admin">
-          Admin Dashboard
+    <div id="wrapper">
+
+      {/* Sidebar */}
+      <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/admin/home">
+          <div className="sidebar-brand-icon rotate-n-15">
+            <i className="fas fa-laugh-wink"></i>
+          </div>
+          <div className="sidebar-brand-text mx-3">Admin Dashboard</div>
         </Link>
-        <button onClick={logout} className="btn btn-danger">
-          Đăng xuất
-        </button>
-      </nav>
 
-      <div className="d-flex flex-grow-1">
-        {/* Sidebar */}
-        <div className="bg-light p-3" style={{ width: "250px" }}>
-          <h5 className="text-center">Quản lý</h5>
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <Link className="nav-link" to="/admin/product">
-                Sản phẩm
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/admin/product/add">
-                Thêm sản phẩm
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <hr className="sidebar-divider my-0" />
 
-        {/* Main content */}
-        <div className="container-fluid p-4">
-          <Outlet />
+        <li className="nav-item active">
+          <Link className="nav-link" to="/admin/home"> {/* Cập nhật đường dẫn */}
+            <i className="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </Link>
+        </li>
+
+        <hr className="sidebar-divider" />
+
+        <div className="sidebar-heading">Quản lý</div>
+
+        <li className="nav-item">
+          <Link className="nav-link" to="/admin/product">
+            <i className="fas fa-fw fa-box"></i>
+            <span>Sản phẩm</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/admin/product/add">
+            <i className="fas fa-fw fa-plus"></i>
+            <span>Thêm sản phẩm</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/admin/orders">
+            <i className="fas fa-fw fa-plus"></i>
+            <span>Quản lý đơn hàng</span>
+          </Link>
+        </li>
+
+        <hr className="sidebar-divider d-none d-md-block" />
+
+        <div className="text-center d-none d-md-inline">
+          <button className="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
+      </ul>
+      {/* End of Sidebar */}
+
+      {/* Content Wrapper */}
+      <div id="content-wrapper" className="d-flex flex-column">
+
+        {/* Main Content */}
+        <div id="content">
+
+          {/* Topbar */}
+          <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
+              <i className="fa fa-bars"></i>
+            </button>
+
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item dropdown no-arrow">
+                <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span className="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
+                  <img className="img-profile rounded-circle" src="img/undraw_profile.svg" alt="..." />
+                </a>
+                <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a className="dropdown-item" href="#" onClick={logout}>
+                    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Đăng xuất
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          {/* End of Topbar */}
+
+          {/* Page Content */}
+          <div className="container-fluid">
+            <Outlet />
+          </div>
+          {/* End of Page Content */}
+
+        </div>
+        {/* End of Main Content */}
+
+        {/* Footer */}
+        <footer className="sticky-footer bg-white">
+          <div className="container my-auto">
+            <div className="copyright text-center my-auto">
+              <span>&copy; 2025 Admin Dashboard</span>
+            </div>
+          </div>
+        </footer>
+        {/* End of Footer */}
+
       </div>
+      {/* End of Content Wrapper */}
 
-      {/* Footer */}
-      <footer className="bg-dark text-white text-center p-2">
-        &copy; 2025 Admin Dashboard
-      </footer>
     </div>
   );
 };

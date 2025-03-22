@@ -1,13 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 
-// Định nghĩa kiểu dữ liệu cho sản phẩm trong giỏ hàng
+// Định nghĩa kiểu dữ liệu cho CartItem
 interface CartItem {
   id: string;
   name: string;
   price: number;
-  thumbnail: string;
   quantity: number;
+  thumbnail: string; // ✅ Thêm thuộc tính thumbnail
 }
+
 
 interface CartContextType {
   cart: CartItem[];
@@ -16,32 +17,19 @@ interface CartContextType {
   clearCart: () => void;
 }
 
-// Tạo Context
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Provider quản lý giỏ hàng
-export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  // Thêm sản phẩm vào giỏ hàng
   const addToCart = (item: CartItem) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
-      if (existingItem) {
-        return prevCart.map((cartItem) =>
-          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-        );
-      }
-      return [...prevCart, item];
-    });
+    setCart((prevCart) => [...prevCart, item]);
   };
 
-  // Xóa sản phẩm khỏi giỏ hàng
   const removeFromCart = (id: string) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  // Xóa toàn bộ giỏ hàng
   const clearCart = () => {
     setCart([]);
   };
@@ -53,7 +41,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   );
 };
 
-// Hook để sử dụng giỏ hàng
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; 
-import { useCart } from "../context/CartContext"; // Import Context giỏ hàng
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";  // Import AuthContext
+import { useCart } from "../context/CartContext";  // Import CartContext
 import IProduct from "../interfaces/product";
 import "./css/styles.css";
 
@@ -8,7 +9,8 @@ function Home() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[]>([]);
   const navigate = useNavigate();
-  const { addToCart } = useCart(); // Lấy hàm thêm vào giỏ hàng
+  const { addToCart } = useCart();
+  const { user } = useAuth(); // Lấy thông tin user từ AuthContext
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,7 +29,7 @@ function Home() {
     fetchProducts();
   }, []);
 
-  // Hàm xử lý khi nhấn nút mua hàng
+  // Xử lý khi nhấn "Mua hàng"
   const handleBuyNow = (product: IProduct) => {
     addToCart({
       id: product.id,
@@ -61,11 +63,29 @@ function Home() {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/products">Products</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/products">Contact</Link></li>
             </ul>
+            <div className="d-flex align-items-center">
+              {user ? (
+                <span className="text-light me-3">👋 Xin chào, {user.name}</span>
+              ) : (
+              <span className="text-light me-3">👋 Xin chào</span>
+              )}
+            </div>
           </div>
         </div>
       </nav>
+
+      {/* Thông báo chào mừng */}
+      <section className="text-center my-4">
+        {user ? (
+          <h2 className="text-success">Xin chào, <strong>{user.name}</strong>! Chào mừng bạn quay trở lại. 🎉</h2>
+        ) : (
+          <h2 className="text-warning">
+            Vui lòng <Link to="/login">đăng nhập</Link> để trải nghiệm mua sắm tốt nhất!
+          </h2>
+        )}
+      </section>
 
       {/* Danh sách sản phẩm */}
       <section className="page-section">
@@ -75,16 +95,16 @@ function Home() {
             {products.map((product) => (
               <div key={product.id} className="col-lg-3 col-md-4 col-6">
                 <div className="card border-0 shadow-lg rounded-4 p-3 h-100">
-                  <img 
-                    src={product.thumbnail} 
-                    className="card-img-top" 
-                    alt={product.title} 
+                  <img
+                    src={product.thumbnail}
+                    className="card-img-top"
+                    alt={product.title}
                     onClick={() => navigate(`/product/${product.id}`)}
                     style={{ cursor: "pointer" }}
                   />
                   <div className="card-body text-center">
-                    <h5 
-                      className="card-title" 
+                    <h5
+                      className="card-title"
                       onClick={() => navigate(`/product/${product.id}`)}
                       style={{ cursor: "pointer", color: "blue" }}
                     >
@@ -110,16 +130,16 @@ function Home() {
             {featuredProducts.map((product) => (
               <div key={product.id} className="col-lg-3 col-md-4 col-6">
                 <div className="card border-0 shadow-lg rounded-4 p-3 h-100">
-                  <img 
-                    src={product.thumbnail} 
-                    className="card-img-top" 
-                    alt={product.title} 
-                    onClick={() => navigate(`/products/${product.id}`)}
+                  <img
+                    src={product.thumbnail}
+                    className="card-img-top"
+                    alt={product.title}
+                    onClick={() => navigate(`/product/${product.id}`)}
                     style={{ cursor: "pointer" }}
                   />
                   <div className="card-body text-center">
-                    <h5 
-                      className="card-title" 
+                    <h5
+                      className="card-title"
                       onClick={() => navigate(`/product/${product.id}`)}
                       style={{ cursor: "pointer", color: "blue" }}
                     >
@@ -160,7 +180,6 @@ function Home() {
               <h5>Mạng xã hội</h5>
               <a href="https://facebook.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">Facebook</a>
               <a href="https://instagram.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://twitter.com" className="text-light" target="_blank" rel="noopener noreferrer">Twitter</a>
             </div>
           </div>
           <p className="mt-3 mb-0 small">&copy; WEBSITE BÁN GẬY BLIDA</p>
