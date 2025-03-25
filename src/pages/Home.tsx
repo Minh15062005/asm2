@@ -3,14 +3,14 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";  // Import AuthContext
 import { useCart } from "../context/CartContext";  // Import CartContext
 import IProduct from "../interfaces/product";
-import "./css/styles.css";
+import './layouts/css/styles.css';
 
 function Home() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[]>([]);
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const { user } = useAuth(); // Lấy thông tin user từ AuthContext
+  const { user } = useAuth(); // Get user information from AuthContext
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,14 +22,14 @@ function Home() {
           setFeaturedProducts(data.slice(0, 4));
         }
       } catch (error) {
-        console.error("Lỗi khi lấy sản phẩm:", error);
+        console.error("Error fetching products:", error);
       }
     };
 
     fetchProducts();
   }, []);
 
-  // Xử lý khi nhấn "Mua hàng"
+  // Handle "Buy Now" button click
   const handleBuyNow = (product: IProduct) => {
     addToCart({
       id: product.id,
@@ -39,45 +39,19 @@ function Home() {
       quantity: 1,
     });
 
-    navigate("/cart"); // Chuyển hướng sang trang giỏ hàng
+    navigate("/cart"); // Redirect to cart page
   };
 
   return (
+
     <div>
-      {/* Header */}
-      <header className="text-center text-faded d-none d-lg-block mb-4">
-        <h1 className="site-heading">
-          <span className="site-heading-upper text-primary mb-3">Product Showcase</span>
-          <span className="site-heading-lower">Our Featured Items</span>
-        </h1>
-      </header>
-
-      {/* Navigation */}
-      <nav className="navbar navbar-expand-lg navbar-dark py-lg-4">
+      <header className="masthead">
         <div className="container">
-          <Link className="navbar-brand text-uppercase fw-bold" to="/">Product Store</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav mx-auto">
-              <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/products">Products</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/products">Contact</Link></li>
-            </ul>
-            <div className="d-flex align-items-center">
-              {user ? (
-                <span className="text-light me-3">👋 Xin chào, {user.name}</span>
-              ) : (
-              <span className="text-light me-3">👋 Xin chào</span>
-              )}
-            </div>
-          </div>
+          <div className="masthead-subheading">Welcome To Our Studio!</div>
+          <div className="masthead-heading text-uppercase">It's Nice To Meet You</div>
+          <Link className="btn btn-primary btn-xl text-uppercase" to="#services">Tell Me More</Link>
         </div>
-      </nav>
-
-      {/* Thông báo chào mừng */}
-      <section className="text-center my-4">
+        <section className="text-center my-4">
         {user ? (
           <h2 className="text-success">Xin chào, <strong>{user.name}</strong>! Chào mừng bạn quay trở lại. 🎉</h2>
         ) : (
@@ -86,8 +60,63 @@ function Home() {
           </h2>
         )}
       </section>
+      </header>
 
-      {/* Danh sách sản phẩm */}
+      {/* Navigation */}
+      <section className="page-section" id="services">
+  <div className="container">
+    <div className="text-center">
+      <h2 className="section-heading text-uppercase">Dịch vụ</h2>
+      <h3 className="section-subheading text-muted">Các giải pháp công nghệ hàng đầu của chúng tôi.</h3>
+    </div>
+    <div className="row text-center">
+      <div className="col-md-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCFm-aSgSMEzAXrdf9horLstHHtihCOq3HpA&s" alt="Thương mại điện tử" className="mb-3" width="100" />
+        <h4 className="my-3">Thương mại điện tử</h4>
+        <p className="text-muted">Chúng tôi cung cấp giải pháp bán hàng trực tuyến chuyên nghiệp.</p>
+      </div>
+      <div className="col-md-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png" alt="Thiết kế đáp ứng" className="mb-3" width="100" />
+        <h4 className="my-3">Thiết kế đáp ứng</h4>
+        <p className="text-muted">Giao diện web hiển thị hoàn hảo trên mọi thiết bị.</p>
+      </div>
+      <div className="col-md-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr6WsCGy-o3brXcj2cmXGkHM_fE_p0gy4X8w&s" alt="Bảo mật web" className="mb-3" width="100" />
+        <h4 className="my-3">Bảo mật web</h4>
+        <p className="text-muted">Giải pháp bảo mật giúp bảo vệ website khỏi các mối đe dọa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      {/* <nav className="navbar navbar-expand-lg navbar-dark py-lg-4">
+        <div className="container">
+          <Link className="navbar-brand text-uppercase fw-bold" to="/">Cửa hàng sản phẩm</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav mx-auto">
+              <li className="nav-item"><Link className="nav-link" to="/">Trang chủ</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/products">Sản phẩm</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/products">Liên hệ</Link></li>
+            </ul>
+            <div className="d-flex align-items-center">
+              {user ? (
+                <span className="text-light me-3">👋 Xin chào, {user.name}</span>
+              ) : (
+                <span className="text-light me-3">👋 Xin chào</span>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav> */}
+
+      {/* Welcome message */}
+    
+
+      {/* Product list */}
       <section className="page-section">
         <div className="container">
           <h2 className="text-center text-primary mb-4">Danh sách sản phẩm</h2>
@@ -122,7 +151,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Sản phẩm nổi bật */}
+      {/* Featured products */}
       <section className="page-section bg-light">
         <div className="container">
           <h2 className="text-center text-danger mb-4">✨ Sản phẩm nổi bật ✨</h2>
@@ -157,34 +186,130 @@ function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-dark text-light text-center py-4">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-4">
-              <h5>Liên hệ</h5>
-              <p>Địa chỉ: Trịnh Văn Bô</p>
-              <p>Email: bildas@gmail.com</p>
-              <p>Điện thoại: 0963802138</p>
-            </div>
-            <div className="col-md-4">
-              <h5>Thông tin</h5>
-              <ul className="list-unstyled">
-                <li><Link className="text-light" to="/about">Giới thiệu</Link></li>
-                <li><Link className="text-light" to="/news">Tin tức</Link></li>
-                <li><Link className="text-light" to="/products">Sản phẩm</Link></li>
-                <li><Link className="text-light" to="/orders">Đơn hàng của bạn</Link></li>
-              </ul>
-            </div>
-            <div className="col-md-4">
-              <h5>Mạng xã hội</h5>
-              <a href="https://facebook.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a href="https://instagram.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">Instagram</a>
-            </div>
-          </div>
-          <p className="mt-3 mb-0 small">&copy; WEBSITE BÁN GẬY BLIDA</p>
+      {/* About */}
+    <section className="page-section" id="about">
+      <div className="container">
+        <div className="text-center">
+          <h2 className="section-heading text-uppercase">Giới thiệu</h2>
+          <h3 className="section-subheading text-muted">
+            Lorem ipsum dolor sit amet consectetur.
+          </h3>
         </div>
-      </footer>
+        <ul className="timeline">
+          <li>
+            <div className="timeline-image">
+              <img
+                className="rounded-circle img-fluid"
+                src="https://scontent.fsgn14-1.fna.fbcdn.net/v/t39.30808-6/484793765_641720988458010_1550665057784103723_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=o3y01KghmE4Q7kNvgGL4vkY&_nc_oc=AdnEYvjXj4aG4wmD3a7FPAZHM2L8xVG_N9MQBwujNP7JJshb4X864QlbWqFYd05RHYM&_nc_zt=23&_nc_ht=scontent.fsgn14-1.fna&_nc_gid=VXX4fRJBhpJgFz-JSjI7_Q&oh=00_AYGdczx2sFAiaJo_2impTeMFW1x_bDT9Qd2bvpKnpTH0YA&oe=67E7EA2E"
+                alt="Humble Beginnings"
+              />
+            </div>
+            <div className="timeline-panel">
+              <div className="timeline-heading">
+                <h4>2009-2011</h4>
+                <h4 className="subheading">Our Humble Beginnings</h4>
+              </div>
+              <div className="timeline-body">
+                <p className="text-muted">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Sunt ut voluptatum eius sapiente, totam reiciendis temporibus
+                  qui quibusdam, recusandae sit vero unde, sed, incidunt et ea
+                  quo dolore laudantium consectetur!
+                </p>
+              </div>
+            </div>
+          </li>
+          <li className="timeline-inverted">
+            <div className="timeline-image">
+              <img
+                className="rounded-circle img-fluid"
+                src="https://scontent.fsgn14-1.fna.fbcdn.net/v/t51.75761-15/485655924_18061276499503970_11117918797572325_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=X5gJ3mfjt7kQ7kNvgH2dJYd&_nc_oc=AdnpB44di42aPy8HddjTaNA7XNYxY6xzt_jkYtAmJquPqYfKI8MTcVbZXZyTQIan0gs&_nc_zt=23&_nc_ht=scontent.fsgn14-1.fna&_nc_gid=zSz-xiag-dtKs3HnTwbd7Q&oh=00_AYEIn6jS5uiYEWHrxvjqHCsxXFdaUO5xHeTLt1DCC7WeJw&oe=67E7E0A7"
+                alt="An Agency is Born"
+              />
+            </div>
+            <div className="timeline-panel">
+              <div className="timeline-heading">
+                <h4>March 2011</h4>
+                <h4 className="subheading">An Agency is Born</h4>
+              </div>
+              <div className="timeline-body">
+                <p className="text-muted">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Sunt ut voluptatum eius sapiente, totam reiciendis temporibus
+                  qui quibusdam, recusandae sit vero unde, sed, incidunt et ea
+                  quo dolore laudantium consectetur!
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+      {/* Team */}
+      <section className="page-section bg-light" id="team">
+        <div className="container">
+          <div className="text-center">
+            <h2 className="section-heading text-uppercase">Đội ngũ tuyệt vời của chúng tôi</h2>
+            <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          </div>
+          <div className="row">
+            {/* Team members here */}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="page-section" id="contact">
+        <div className="container">
+          <div className="text-center">
+            <h2 className="section-heading text-uppercase">Liên hệ với chúng tôi</h2>
+            <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          </div>
+          <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+            <div className="row align-items-stretch mb-5">
+              <div className="col-md-6">
+                <div className="form-group">
+                  <input className="form-control" id="name" type="text" placeholder="Tên của bạn *" data-sb-validations="required" />
+                  <div className="invalid-feedback" data-sb-feedback="name:required">Cần có tên.</div>
+                </div>
+                <div className="form-group">
+                  <input className="form-control" id="email" type="email" placeholder="Email của bạn *" data-sb-validations="required,email" />
+                  <div className="invalid-feedback" data-sb-feedback="email:required">Cần có email.</div>
+                  <div className="invalid-feedback" data-sb-feedback="email:email">Email không hợp lệ.</div>
+                </div>
+                <div className="form-group mb-md-0">
+                  <input className="form-control" id="phone" type="tel" placeholder="Số điện thoại của bạn *" data-sb-validations="required" />
+                  <div className="invalid-feedback" data-sb-feedback="phone:required">Cần có số điện thoại.</div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="form-group form-group-textarea mb-md-0">
+                  <textarea className="form-control" id="message" placeholder="Tin nhắn của bạn *" data-sb-validations="required" />
+                  <div className="invalid-feedback" data-sb-feedback="message:required">Cần có tin nhắn.</div>
+                </div>
+              </div>
+            </div>
+            <div className="d-none" id="submitSuccessMessage">
+              <div className="text-center text-white mb-3">
+                <div className="fw-bolder">Gửi mẫu thành công!</div>
+                Để kích hoạt mẫu này, hãy đăng ký tại <br />
+                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+              </div>
+            </div>
+            <div className="d-none" id="submitErrorMessage">
+              <div className="text-center text-danger mb-3">Lỗi khi gửi tin nhắn!</div>
+            </div>
+            <div className="text-center">
+              <button className="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Gửi tin nhắn</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+
+      {/* Repeat for other modals */}
     </div>
   );
 }

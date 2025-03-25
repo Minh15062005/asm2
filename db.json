@@ -395,6 +395,26 @@
       "status": "Đang xử lý",
       "createdAt": "2025-03-22T18:46:16.534Z",
       "id": 25
+    },
+    {
+      "customer": {
+        "name": "lê văn minh mà",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 9200,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-25T03:43:16.539Z",
+      "id": 26
     }
   ]
 }
