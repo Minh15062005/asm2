@@ -1,7 +1,7 @@
 import { useAuth } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
-import '../css/sb-admin-2.css';  // Đảm bảo đường dẫn đúng
-import '../css/sb-admin-2.min.css';  // Đảm bảo đường dẫn đúng
+import '../css/admin.css';  // Đảm bảo đường dẫn đúng
+import '../css/admin1.css';
 
 const HomeAdmin = () => {
   const { logout } = useAuth();

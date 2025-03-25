@@ -1,7 +1,8 @@
+import { HelmetProvider } from "react-helmet-async";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider, useAuth } from "./context/AuthContext";
-import { CartProvider } from "./context/CartContext";  // 🚀 Import CartProvider
+import { CartProvider } from "./context/CartContext";
 
 // Layouts
 import LayoutClient from "./pages/layouts/LayoutClient";
@@ -25,7 +26,7 @@ import AdminOrders from "./pages/admin/AdminOrders";
 import HomeAdmin from "./pages/product/home";
 import LoginAdmin from "./pages/admin/login";
 
-// 🔹 PrivateRoute bảo vệ trang Admin
+// 🔹 Bảo vệ trang Admin (Chỉ Admin mới truy cập được)
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const { isAuthenticated, isAdmin } = useAuth();
   if (!isAuthenticated || !isAdmin) {
@@ -34,40 +35,49 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   return children;
 };
 
-function App() {
+const App = () => {
   return (
-    <AuthProvider>
-      <CartProvider> {/* 🚀 Bọc toàn bộ trong CartProvider */}
-        <Routes>
-          {/* 🚀 Layout khách hàng */}
-          <Route path="/" element={<LayoutClient />}>
-            <Route index element={<Home />} />
-            <Route path="products" element={<Products />} />
-            <Route path="product/:id" element={<ProductDetail />} />
-            <Route path="cart" element={<CartPage />} />
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
-            <Route path="checkout" element={<Checkout />} />
-            <Route path="orders" element={<OrderList />} />
-          </Route>
+    <HelmetProvider>
+      <AuthProvider>
+        <CartProvider>
+          <Routes>
+            {/* 🚀 Layout khách hàng */}
+            <Route path="/" element={<LayoutClient />}>
+              <Route index element={<Home />} />
+              <Route path="products" element={<Products />} />
+              <Route path="product/:id" element={<ProductDetail />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="register" element={<Register />} />
+              <Route path="login" element={<Login />} />
+              <Route path="checkout" element={<Checkout />} />
+              <Route path="orders" element={<OrderList />} />
+            </Route>
 
-          {/* 🚀 Layout Admin */}
-          <Route path="/admin/loginadmin" element={<LoginAdmin />} />
-          <Route path="/admin" element={<PrivateRoute><LayoutAdmin /></PrivateRoute>}>
-            <Route path="home" element={<HomeAdmin />} />
-            <Route path="product" element={<List />} />
-            <Route path="product/add" element={<Add />} />
-            <Route path="product/edit/:id" element={<Edit />} />
-            <Route path="orders" element={<AdminOrders />} />
-          </Route>
+            {/* 🚀 Trang Admin */}
+            <Route path="/admin/loginadmin" element={<LoginAdmin />} />
+            <Route
+              path="/admin"
+              element={
+                <PrivateRoute>
+                  <LayoutAdmin />
+                </PrivateRoute>
+              }
+            >
+              <Route path="home" element={<HomeAdmin />} />
+              <Route path="product" element={<List />} />
+              <Route path="product/add" element={<Add />} />
+              <Route path="product/edit/:id" element={<Edit />} />
+              <Route path="orders" element={<AdminOrders />} />
+            </Route>
 
-          {/* 🚀 Xử lý trang không tồn tại */}
-          <Route path="*" element={<h1>404 - Not Found</h1>} />
-        </Routes>
-        <Toaster />
-      </CartProvider>
-    </AuthProvider>
+            {/* 🚀 Xử lý trang không tồn tại */}
+            <Route path="*" element={<h1>404 - Not Found</h1>} />
+          </Routes>
+          <Toaster />
+        </CartProvider>
+      </AuthProvider>
+    </HelmetProvider>
   );
-}
+};
 
 export default App;

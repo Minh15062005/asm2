@@ -108,7 +108,7 @@
         }
       ],
       "total": 6500,
-      "status": "Đang xử lý",
+      "status": "Đã hủy",
       "createdAt": "2025-03-20T03:17:23.083Z",
       "id": 10
     },
@@ -128,7 +128,7 @@
         }
       ],
       "total": 12500,
-      "status": "Đang xử lý",
+      "status": "Đã hoàn thành",
       "createdAt": "2025-03-20T03:20:15.449Z",
       "id": 11
     },
@@ -332,7 +332,7 @@
         }
       ],
       "total": 6500,
-      "status": "Đang xử lý",
+      "status": "Đã hoàn thành",
       "createdAt": "2025-03-22T04:13:12.886Z",
       "id": 22
     },
@@ -355,6 +355,66 @@
       "status": "Đang xử lý",
       "createdAt": "2025-03-22T09:09:03.173Z",
       "id": 23
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "Thanh Hóa"
+      },
+      "items": [
+        {
+          "id": 3,
+          "name": "Gậy Bida Predator Revo",
+          "price": 12500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/01/anh-dai-dien-2-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 12500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-22T18:29:12.724Z",
+      "id": 24
+    },
+    {
+      "customer": {
+        "name": "lê văn minh mà",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 6500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-22T18:46:16.534Z",
+      "id": 25
+    },
+    {
+      "customer": {
+        "name": "lê văn minh mà",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 9200,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-25T03:43:16.539Z",
+      "id": 26
     }
   ]
 }
