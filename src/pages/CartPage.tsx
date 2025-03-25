@@ -5,7 +5,7 @@ function CartPage() {
   const { cart } = useCart();
 
   return (
-    <div className="container mt-4 text-white">
+    <div className="container mt-4 text-black">
       <h2>🛒 Giỏ hàng</h2>
 
       {cart.length === 0 ? (

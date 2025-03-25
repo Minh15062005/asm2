@@ -99,9 +99,9 @@ function LayoutClient() {
       <footer className="footer py-4">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-4 text-lg-start">Bản quyền © Website của bạn 2023</div>
+            <div className="col-lg-4 text-lg-start">Shop bán gậy bilda hàng đầu server</div>
             <div className="col-lg-4 my-3 my-lg-0">
-              <a className="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter">
+              <a className="btn btn-dark btn-social mx-2" href="" aria-label="Twitter">
                 <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter" width="30" />
               </a>
               <a className="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook">

@@ -307,9 +307,7 @@ function Home() {
           </form>
         </div>
       </section>
-
-
-      {/* Repeat for other modals */}
+      
     </div>
   );
 }

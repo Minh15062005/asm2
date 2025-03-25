@@ -75,7 +75,7 @@ function Checkout() {
   };
 
   return (
-    <div className="container mt-4 text-white"> {/* Thêm class text-white để đổi màu phông chữ */}
+    <div className="container mt-4 text-black"> {/* Thêm class text-white để đổi màu phông chữ */}
       <h2>🛍️ Thanh toán</h2>
 
       {cart.length === 0 ? (
@@ -85,7 +85,7 @@ function Checkout() {
           <h4>Thông tin đơn hàng</h4>
           <ul className="list-group">
             {cart.map((item: CartItem) => (
-              <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
+              <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center ">
                 <img src={item.thumbnail} alt={item.name} style={{ width: "50px", height: "50px" }} />
                 <span>{item.name}</span>
                 <span>{item.price.toLocaleString()} VNĐ</span>

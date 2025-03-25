@@ -26,15 +26,12 @@ function Login() {
       toast.error(error.response.data);
     }
   };
-
-
-
   return (
     <div>
-      <h1 className="text-white">Đăng nhập</h1>
+      <h1 className="text-black">Đăng nhập</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label text-white">
+          <label htmlFor="email" className="form-label text-black">
             Email address
           </label>
           <input
@@ -52,7 +49,7 @@ function Login() {
           {errors?.email && <span className="text-danger">{errors?.email?.message}</span>}
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label text-white">
+          <label htmlFor="password" className="form-label text-black">
             Password
           </label>
           <input

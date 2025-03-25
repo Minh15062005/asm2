@@ -26,10 +26,10 @@ function Register() {
 
   return (
     <div>
-      <h1 className="text-white">Đăng ký</h1>
+      <h1 className="text-black">Đăng ký</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
-          <label htmlFor="username" className="form-label text-white">
+          <label htmlFor="username" className="form-label text-black">
             Username
           </label>
           <input
@@ -45,7 +45,7 @@ function Register() {
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label text-white">
+          <label htmlFor="email" className="form-label text-black">
             Email address
           </label>
           <input
@@ -65,7 +65,7 @@ function Register() {
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label text-white">
+          <label htmlFor="password" className="form-label text-black">
             Password
           </label>
           <input
@@ -85,7 +85,7 @@ function Register() {
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="confirmPassword" className="form-label text-white">
+          <label htmlFor="confirmPassword" className="form-label text-black">
             Confirm Password
           </label>
           <input

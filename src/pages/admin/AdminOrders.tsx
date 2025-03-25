@@ -61,7 +61,7 @@ function AdminOrders() {
                 <td>{order.total ? order.total.toLocaleString() : "0"} VNĐ</td>
                 <td>{order.status || "Chưa cập nhật"}</td>
                 <td>
-                 z <select
+                 <select
                     value={order.status}
                     onChange={(e) => updateOrderStatus(order.id, e.target.value)}
                   >
