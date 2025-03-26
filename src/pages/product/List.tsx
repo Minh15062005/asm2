@@ -25,7 +25,8 @@ function List() {
     // console.log(id);
     if (window.confirm("Bạn có chắc chắn muốn xóa không ?")) {
       try {
-        await axios.delete(`http://localhost:3000/products/${id}`)
+        await axios.delete(`http://localhost:30
+          00/products/${id}`)
 
         toast.success("Xóa thành công");
 
