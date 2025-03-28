@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from "react";
+import { useAuth } from "./AuthContext"; // ✅ Import useAuth
 
 // Định nghĩa kiểu dữ liệu cho CartItem
 interface CartItem {
@@ -22,9 +23,15 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const { isAuthenticated } = useAuth(); // ✅ Kiểm tra đăng nhập
 
   // Thêm sản phẩm vào giỏ hàng
   const addToCart = (item: CartItem) => {
+    if (!isAuthenticated) {
+      alert("Bạn cần đăng nhập để mua hàng!"); // ✅ Bắt buộc đăng nhập trước khi thêm sản phẩm
+      return;
+    }
+
     setCart((prevCart) => {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
       if (existingItem) {
@@ -64,7 +71,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         .map((item) =>
           item.id === id ? { ...item, quantity: item.quantity - 1 } : item
         )
-        .filter((item) => item.quantity > 0) // Xóa nếu quantity = 0
+        .filter((item) => item.quantity > 0) // ✅ Xóa nếu số lượng = 0
     );
   };
 

@@ -73,7 +73,7 @@ const LayoutAdmin = () => {
               <li className="nav-item dropdown no-arrow">
                 <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span className="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
-                  <img className="img-profile rounded-circle" src="img/undraw_profile.svg" alt="..." />
+                  <img className="img-profile rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png" alt="..." />
                 </a>
                 <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                   <a className="dropdown-item" href="#" onClick={logout}>
