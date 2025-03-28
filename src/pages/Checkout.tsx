@@ -30,6 +30,8 @@ function Checkout() {
     return /^(0[3-9])[0-9]{8}$/.test(phone);
   };
 
+  const totalPrice = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+
   const handlePayment = async () => {
     if (!customerInfo.name || !customerInfo.phone || !customerInfo.address) {
       alert("Vui lòng nhập đầy đủ thông tin!");
@@ -48,7 +50,7 @@ function Checkout() {
     const orderData = {
       customer: customerInfo,
       items: cart,
-      total: cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0),
+      total: totalPrice,
       status: "Đang xử lý",
       createdAt: new Date().toISOString(),
     };
@@ -75,7 +77,7 @@ function Checkout() {
   };
 
   return (
-    <div className="container mt-4 text-black"> {/* Thêm class text-white để đổi màu phông chữ */}
+    <div className="container mt-4 text-black">
       <h2>🛍️ Thanh toán</h2>
 
       {cart.length === 0 ? (
@@ -85,14 +87,16 @@ function Checkout() {
           <h4>Thông tin đơn hàng</h4>
           <ul className="list-group">
             {cart.map((item: CartItem) => (
-              <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center ">
+              <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
                 <img src={item.thumbnail} alt={item.name} style={{ width: "50px", height: "50px" }} />
-                <span>{item.name}</span>
-                <span>{item.price.toLocaleString()} VNĐ</span>
-                <span>x{item.quantity || 1}</span>
+                <span>Tên Sản Phẩm : {item.name}</span>
+                <span>Gía :{item.price.toLocaleString()} VNĐ</span>
+                <span>Số Lượng : {item.quantity || 1}</span>
               </li>
             ))}
           </ul>
+
+          <h4 className="mt-3">🧾 Tổng tiền: <strong>{totalPrice.toLocaleString()} VNĐ</strong></h4>
 
           <h4 className="mt-4">Thông tin khách hàng</h4>
           <input type="text" name="name" className="form-control mb-2" placeholder="Họ và tên" onChange={handleInputChange} />
