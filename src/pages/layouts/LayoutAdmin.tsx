@@ -48,6 +48,12 @@ const LayoutAdmin = () => {
             <span>Quản lý đơn hàng</span>
           </Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/admin/users">
+            <i className="fas fa-fw fa-plus"></i>
+            <span>Quản lý người dùng</span>
+          </Link>
+        </li>
 
         <hr className="sidebar-divider d-none d-md-block" />
 

@@ -54,7 +54,7 @@
     },
     {
       "title": "Gậy Bida Predator Revo",
-      "price": "12500",
+      "price": "125000",
       "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/01/anh-dai-dien-2-768x768.jpg",
       "description": "Gậy bida Predator Revo với công nghệ tiên tiến, giúp người chơi kiểm soát tốt hơn.",
       "category": "Gậy vip",
@@ -89,6 +89,12 @@
       "password": "$2a$10$kRk2w5YuHjeLkI/bzOGGsuhm7HOO9MjHQbWahbYrs6IcVmvFs9jqq",
       "username": "minh",
       "id": 2
+    },
+    {
+      "email": "minhlvph4914@gmail.com",
+      "password": "$2a$10$a4of46RZq/M8Yz4HLsdKaO.e/ylK6eo4AhouPmziAsloLHW4lPi8q",
+      "username": "minh",
+      "id": 3
     }
   ],
   "orders": [
