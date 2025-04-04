@@ -1,13 +1,14 @@
-export interface Customer {
+export interface Order {
+  id: number;
+  customer: {
     name: string;
     phone: string;
     address: string;
-  }
-  
-  export interface Order {
-    id: string;
-    customer: Customer;
-    total: number;
+  };
+  total: number;
+  status: string;
+  history?: {
     status: string;
-  }
-  
+    updatedAt: string; // hoặc Date
+  }[];
+}

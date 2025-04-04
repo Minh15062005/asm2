@@ -89,6 +89,12 @@
       "password": "$2a$10$kRk2w5YuHjeLkI/bzOGGsuhm7HOO9MjHQbWahbYrs6IcVmvFs9jqq",
       "username": "minh",
       "id": 2
+    },
+    {
+      "email": "tuanvxph48985@gmail.com",
+      "password": "$2a$10$sG2gSbKj2Ms4SKKKODJl0ei5Dw088MuUQeUz3Nlpdmaqb6HKng9l.",
+      "username": "tuandubai123",
+      "id": 3
     }
   ],
   "orders": [

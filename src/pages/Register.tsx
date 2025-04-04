@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Register as ResgiterInput } from "../interfaces/user";
+import { Register as RegisterInput } from "../interfaces/user";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -10,10 +10,10 @@ function Register() {
     handleSubmit,
     formState: { errors },
     watch
-  } = useForm<ResgiterInput>();
+  } = useForm<RegisterInput>();
   const navigate = useNavigate();
 
-  const onSubmit = async (data: ResgiterInput) => {
+  const onSubmit = async (data: RegisterInput) => {
     try {
       data.confirmPassword = undefined;
       await axios.post(`http://localhost:3000/register`, data);
