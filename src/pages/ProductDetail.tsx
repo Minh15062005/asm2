@@ -52,12 +52,12 @@ function ProductDetail() {
     }
   };
 
-  if (loading) return <p className="text-center text-warning">Đang tải...</p>;
+  if (loading) return <p className="text-center text-black">Đang tải...</p>;
 
-  if (!product) return <p className="text-center text-danger">Sản phẩm không tồn tại!</p>;
+  if (!product) return <p className="text-center text-black">Sản phẩm không tồn tại!</p>;
 
   return (
-    <div className="container mt-5 text-light"> {/* Áp dụng màu sáng cho toàn bộ */}
+    <div className="container mt-5 text-black"> {/* Áp dụng màu sáng cho toàn bộ */}
       <div className="row">
         {/* Hình ảnh sản phẩm */}
         <div className="col-md-6">
@@ -71,7 +71,7 @@ function ProductDetail() {
         {/* Thông tin sản phẩm */}
         <div className="col-md-6">
           <h2 className="fw-bold">{product.title}</h2>
-          <p className="text-muted">Danh mục: <strong className="text-warning">{product.category}</strong></p>
+          <p className="text-black">Danh mục: <strong className="text-black">{product.category}</strong></p>
           <h4 className="text-danger fw-bold">{product.price.toLocaleString()} VNĐ</h4>
           <p className="fw-light">{product.description}</p>
           <p>

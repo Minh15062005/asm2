@@ -54,7 +54,7 @@
     },
     {
       "title": "Gậy Bida Predator Revo",
-      "price": "12500",
+      "price": "125000",
       "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/01/anh-dai-dien-2-768x768.jpg",
       "description": "Gậy bida Predator Revo với công nghệ tiên tiến, giúp người chơi kiểm soát tốt hơn.",
       "category": "Gậy vip",
@@ -71,7 +71,7 @@
     {
       "title": "Gậy Bida Predator Revo",
       "price": "12500",
-      "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/01/anh-dai-dien-2-768x768.jpg",
+      "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
       "description": "Gậy bida Predator Revo với công nghệ tiên tiến, giúp người chơi kiểm soát tốt hơn.",
       "category": "Gậy vip",
       "id": 8
@@ -89,6 +89,12 @@
       "password": "$2a$10$kRk2w5YuHjeLkI/bzOGGsuhm7HOO9MjHQbWahbYrs6IcVmvFs9jqq",
       "username": "minh",
       "id": 2
+    },
+    {
+      "email": "minhlvph4914@gmail.com",
+      "password": "$2a$10$a4of46RZq/M8Yz4HLsdKaO.e/ylK6eo4AhouPmziAsloLHW4lPi8q",
+      "username": "minh",
+      "id": 3
     }
   ],
   "orders": [
@@ -108,7 +114,7 @@
         }
       ],
       "total": 6500,
-      "status": "Đã hủy",
+      "status": "Đang xử lý",
       "createdAt": "2025-03-20T03:17:23.083Z",
       "id": 10
     },
@@ -128,7 +134,7 @@
         }
       ],
       "total": 12500,
-      "status": "Đã hoàn thành",
+      "status": "Chưa xử lý",
       "createdAt": "2025-03-20T03:20:15.449Z",
       "id": 11
     },
@@ -148,7 +154,7 @@
         }
       ],
       "total": 6500,
-      "status": "Đang xử lý",
+      "status": "Đã hủy",
       "createdAt": "2025-03-20T03:25:05.508Z",
       "id": 12
     },
@@ -415,6 +421,293 @@
       "status": "Đang xử lý",
       "createdAt": "2025-03-25T03:43:16.539Z",
       "id": 26
+    },
+    {
+      "customer": {
+        "name": "lê văn minh mà",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 6500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-25T04:20:41.455Z",
+      "id": 27
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 6500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-25T07:07:04.498Z",
+      "id": 28
+    },
+    {
+      "customer": {
+        "name": "Mẹ của thiện",
+        "phone": "0974567899",
+        "address": "Thị Xã Nghi Sơn - Tỉnh Thanh Hóa"
+      },
+      "items": [
+        {
+          "id": 6,
+          "name": "Gậy Bida Predator Revo",
+          "price": "12500",
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/01/anh-dai-dien-2-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 12500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-27T02:35:11.607Z",
+      "id": 29
+    },
+    {
+      "customer": {
+        "name": "minh",
+        "phone": "0974567899",
+        "address": "Thị Xã Nghi Sơn - Tỉnh Thanh Hóa"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 9200,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-27T03:29:17.768Z",
+      "id": 30
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 6,
+          "name": "Gậy Bida Predator Revo",
+          "price": "12500",
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/01/anh-dai-dien-2-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 12500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-27T03:30:59.129Z",
+      "id": 31
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 15700,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-27T03:32:03.736Z",
+      "id": 32
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 5
+        }
+      ],
+      "total": 32500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-28T09:58:02.976Z",
+      "id": 33
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 2
+        }
+      ],
+      "total": 13000,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-28T10:02:54.852Z",
+      "id": 34
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 6500,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-28T10:07:51.889Z",
+      "id": 35
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
+          "quantity": 3
+        }
+      ],
+      "total": 27600,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-28T10:10:52.279Z",
+      "id": 36
+    },
+    {
+      "customer": {
+        "name": "lê văn minh ",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
+          "quantity": 5
+        }
+      ],
+      "total": 46000,
+      "status": "Đang xử lý",
+      "createdAt": "2025-03-28T10:13:15.787Z",
+      "id": 37
+    },
+    {
+      "customer": {
+        "name": "lê văn minh mà",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 4
+        }
+      ],
+      "total": 26000,
+      "status": "Đang xử lý",
+      "createdAt": "2025-04-01T04:08:03.212Z",
+      "id": 38
+    },
+    {
+      "customer": {
+        "name": "minh",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 4
+        }
+      ],
+      "total": 26000,
+      "status": "Đang xử lý",
+      "createdAt": "2025-04-03T04:06:21.542Z",
+      "id": 39
+    },
+    {
+      "customer": {
+        "name": "minh",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 2
+        }
+      ],
+      "total": 13000,
+      "status": "Đang xử lý",
+      "createdAt": "2025-04-05T03:01:50.047Z",
+      "id": 40
     }
   ]
 }

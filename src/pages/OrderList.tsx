@@ -25,7 +25,7 @@ const OrderList = () => {
 
   return (
     <div>
-      <h2 className="mt-5 text-white">📦 Đơn hàng của bạn</h2>
+      <h2 className="mt-5 text-black">📦 Đơn hàng của bạn</h2>
       {orders.length === 0 ? (
         <p>Chưa có đơn hàng nào!</p>
       ) : (

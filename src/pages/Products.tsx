@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import IProduct from "../interfaces/product";
-import ProductItem from "../components/ProductItem";
-
 function FeaturedProducts() {
   const [products, setProducts] = useState<IProduct[]>([]);
 
@@ -15,7 +13,7 @@ function FeaturedProducts() {
           // Chỉ lấy 4 sản phẩm đầu tiên làm nổi bật
           setProducts(data.slice(0, 4));
         }
-      } catch (error) {
+      } catch (error) { 
         console.error("Lỗi khi lấy sản phẩm:", error);
       }
     };
@@ -36,7 +34,7 @@ function FeaturedProducts() {
                   <h5 className="card-title">{item.title}</h5>
                   <p className="card-text text-danger fw-bold">{item.price.toLocaleString()} VNĐ</p>
                   <p className="card-text">{item.description}</p>
-                  <a href={`/product/${item.id}`} className="btn btn-primary">Mua ngay</a>
+                  <a href={`/product/${item.id}`} className="btn btn-primary">Xem Sản Phẩm</a>
                 </div>
               </div>
             </div>
