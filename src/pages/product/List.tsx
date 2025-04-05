@@ -6,12 +6,10 @@ import { useEffect, useState } from "react";
 
 function List() {
   const [products, setProducts] = useState<IProduct[]>([]);
-
   useEffect(() => {
     const getAllProducts = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3000/products`); //destructuring
-        // console.log(data);
+        const { data } = await axios.get(`http://localhost:3000/products`); 
         setProducts(data);
       } catch (error) {
         toast.error((error as AxiosError).message);

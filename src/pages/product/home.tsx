@@ -9,18 +9,8 @@ const HomeAdmin = () => {
   return (
     <div id="wrapper">
 
-
-      {/* End of Sidebar */}
-
-      {/* Content Wrapper */}
       <div id="content-wrapper" className="d-flex flex-column">
-
-        {/* Main Content */}
         <div id="content">
-
-          {/* Topbar */}
-
-
           <ul className="navbar-nav ml-auto">
             <li className="nav-item dropdown no-arrow">
 
@@ -32,9 +22,7 @@ const HomeAdmin = () => {
               </div>
             </li>
           </ul>
-
-
-
+          
           {/* Page Content */}
           <div className="container-fluid">
             <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>

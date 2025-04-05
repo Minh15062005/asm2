@@ -36,12 +36,7 @@ const LayoutAdmin = () => {
             <span>Sản phẩm</span>
           </Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/admin/product/add">
-            <i className="fas fa-fw fa-plus"></i>
-            <span>Thêm sản phẩm</span>
-          </Link>
-        </li>
+        
         <li className="nav-item">
           <Link className="nav-link" to="/admin/orders">
             <i className="fas fa-fw fa-plus"></i>
@@ -62,11 +57,7 @@ const LayoutAdmin = () => {
         </div>
       </ul>
       {/* End of Sidebar */}
-
-      {/* Content Wrapper */}
       <div id="content-wrapper" className="d-flex flex-column">
-
-        {/* Main Content */}
         <div id="content">
 
           {/* Topbar */}
@@ -90,16 +81,11 @@ const LayoutAdmin = () => {
               </li>
             </ul>
           </nav>
-          {/* End of Topbar */}
 
-          {/* Page Content */}
           <div className="container-fluid">
             <Outlet />
           </div>
-          {/* End of Page Content */}
-
         </div>
-        {/* End of Main Content */}
 
         {/* Footer */}
         <footer className="sticky-footer bg-white">

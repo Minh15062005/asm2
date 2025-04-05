@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import IProduct from "../interfaces/product";
-import ProductItem from "../components/ProductItem";
-
 function FeaturedProducts() {
   const [products, setProducts] = useState<IProduct[]>([]);
 
@@ -15,7 +13,7 @@ function FeaturedProducts() {
           // Chỉ lấy 4 sản phẩm đầu tiên làm nổi bật
           setProducts(data.slice(0, 4));
         }
-      } catch (error) {
+      } catch (error) { 
         console.error("Lỗi khi lấy sản phẩm:", error);
       }
     };
