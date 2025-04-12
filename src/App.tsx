@@ -1,4 +1,3 @@
-
 import { HelmetProvider } from "react-helmet-async";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -29,6 +28,7 @@ import Edit from "./pages/product/Edit";
 import AdminOrders from "./pages/admin/AdminOrders";
 import HomeAdmin from "./pages/product/home";
 import LoginAdmin from "./pages/admin/login";
+import UserManagementPage from "./pages/admin/UserManagementPage"; // Thêm trang quản lý người dùng
 
 // Optional: Component sử dụng UserContext (chỉ test hiển thị)
 import UserProfile from "./components/UserProfile"; // Thêm nếu bạn cần dùng thử
@@ -76,6 +76,7 @@ const App = () => {
                 <Route path="product/add" element={<Add />} />
                 <Route path="product/edit/:id" element={<Edit />} />
                 <Route path="orders" element={<AdminOrders />} />
+                <Route path="users" element={<UserManagementPage />} /> {/* 👥 Route quản lý người dùng */}
               </Route>
 
               {/* 👤 Optional: Trang hiển thị UserProfile nếu cần */}

@@ -95,6 +95,12 @@
       "password": "$2a$10$sG2gSbKj2Ms4SKKKODJl0ei5Dw088MuUQeUz3Nlpdmaqb6HKng9l.",
       "username": "tuandubai123",
       "id": 3
+    },
+    {
+      "email": "vietcan@gmail.com",
+      "password": "$2a$10$s1mP5M9gebmGEJ3djRduE.KFiWV2zZGhzCUOtfQrYcJo7KQtGN2.C",
+      "username": "vietcan",
+      "id": 4
     }
   ],
   "orders": [
@@ -481,6 +487,26 @@
       "status": "Đang xử lý",
       "createdAt": "2025-03-27T02:35:11.607Z",
       "id": 29
+    },
+    {
+      "customer": {
+        "name": "Tuấn Vương",
+        "phone": "0367556095",
+        "address": "Hà Nội"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "Gậy Bida Mezz Ignite",
+          "price": 9200,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/05/CO-BIDA-RHINO-2-768x768.jpg",
+          "quantity": 1
+        }
+      ],
+      "total": 9200,
+      "status": "Đang xử lý",
+      "createdAt": "2025-04-11T15:51:46.511Z",
+      "id": 30
     }
   ]
 }

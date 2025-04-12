@@ -2,12 +2,12 @@ import { useAuth } from "../../context/AuthContext";
 import { Link, Outlet } from "react-router-dom";
 import '../css/admin.css';  // Đảm bảo đường dẫn đúng
 import '../css/admin1.css';  // Đảm bảo đường dẫn đúng
+
 const LayoutAdmin = () => {
   const { logout } = useAuth();
 
   return (
     <div id="wrapper">
-
       {/* Sidebar */}
       <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/admin/home">
@@ -20,7 +20,7 @@ const LayoutAdmin = () => {
         <hr className="sidebar-divider my-0" />
 
         <li className="nav-item active">
-          <Link className="nav-link" to="/admin/home"> {/* Cập nhật đường dẫn */}
+          <Link className="nav-link" to="/admin/home">
             <i className="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </Link>
@@ -36,16 +36,25 @@ const LayoutAdmin = () => {
             <span>Sản phẩm</span>
           </Link>
         </li>
+
         <li className="nav-item">
           <Link className="nav-link" to="/admin/product/add">
             <i className="fas fa-fw fa-plus"></i>
             <span>Thêm sản phẩm</span>
           </Link>
         </li>
+
         <li className="nav-item">
           <Link className="nav-link" to="/admin/orders">
-            <i className="fas fa-fw fa-plus"></i>
+            <i className="fas fa-fw fa-shopping-cart"></i>
             <span>Quản lý đơn hàng</span>
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link" to="/admin/users">
+            <i className="fas fa-users-cog"></i>
+            <span>Quản lý người dùng</span>
           </Link>
         </li>
 
@@ -59,10 +68,8 @@ const LayoutAdmin = () => {
 
       {/* Content Wrapper */}
       <div id="content-wrapper" className="d-flex flex-column">
-
         {/* Main Content */}
         <div id="content">
-
           {/* Topbar */}
           <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
             <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
@@ -91,7 +98,6 @@ const LayoutAdmin = () => {
             <Outlet />
           </div>
           {/* End of Page Content */}
-
         </div>
         {/* End of Main Content */}
 
@@ -104,10 +110,8 @@ const LayoutAdmin = () => {
           </div>
         </footer>
         {/* End of Footer */}
-
       </div>
       {/* End of Content Wrapper */}
-
     </div>
   );
 };
