@@ -708,6 +708,26 @@
       "status": "Đang xử lý",
       "createdAt": "2025-04-05T03:01:50.047Z",
       "id": 40
+    },
+    {
+      "customer": {
+        "name": "lê văn minh mà",
+        "phone": "0974567899",
+        "address": "ha noi"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Gậy Bida Fury",
+          "price": 6500,
+          "thumbnail": "https://vuabida.vn/wp-content/uploads/2024/08/Mit-BlackArrow-Ma22-2-1-768x768.jpg",
+          "quantity": 2
+        }
+      ],
+      "total": 13000,
+      "status": "Đang xử lý",
+      "createdAt": "2025-04-12T02:35:03.404Z",
+      "id": 41
     }
   ]
 }

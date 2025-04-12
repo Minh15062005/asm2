@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 interface Order {
   id: number;
-  customer: {
+  customer?: {
     name: string;
     phone: string;
     address: string;
@@ -36,7 +36,10 @@ function TongTien() {
         });
 
         const data = await response.json();
-        setOrders(data.reverse()); // Mới nhất lên đầu
+
+        // Chỉ lấy đơn hàng có thông tin khách hàng
+        const validOrders = data.filter((order: Order) => order.customer);
+        setOrders(validOrders.reverse()); // Mới nhất lên đầu
       } catch (error) {
         console.error("Lỗi khi lấy đơn hàng:", error);
       }
@@ -45,9 +48,10 @@ function TongTien() {
     fetchOrders();
   }, []);
 
-  const filteredOrders = filteredStatus === "Tất cả"
-    ? orders
-    : orders.filter((order) => order.status === filteredStatus);
+  const filteredOrders =
+    filteredStatus === "Tất cả"
+      ? orders
+      : orders.filter((order) => order.status === filteredStatus);
 
   const totalRevenue = filteredOrders.reduce((sum, o) => sum + o.total, 0);
 
@@ -57,7 +61,10 @@ function TongTien() {
 
       <div className="mb-3 d-flex align-items-center gap-3">
         <label>🔍 Lọc theo trạng thái:</label>
-        <select className="form-select w-auto" onChange={(e) => setFilteredStatus(e.target.value)}>
+        <select
+          className="form-select w-auto"
+          onChange={(e) => setFilteredStatus(e.target.value)}
+        >
           <option value="Tất cả">Tất cả</option>
           <option value="Đang xử lý">Đang xử lý</option>
           <option value="Hoàn thành">Hoàn thành</option>
@@ -65,8 +72,12 @@ function TongTien() {
         </select>
       </div>
 
-      <p>Tổng số đơn: <strong>{filteredOrders.length}</strong></p>
-      <p>Tổng doanh thu: <strong>{totalRevenue.toLocaleString()} VNĐ</strong></p>
+      <p>
+        Tổng số đơn: <strong>{filteredOrders.length}</strong>
+      </p>
+      <p>
+        Tổng doanh thu: <strong>{totalRevenue.toLocaleString()} VNĐ</strong>
+      </p>
 
       <div className="table-responsive mt-4">
         <table className="table table-bordered table-striped">
@@ -86,20 +97,20 @@ function TongTien() {
             {filteredOrders.map((order, index) => (
               <tr key={order.id}>
                 <td>{index + 1}</td>
-                <td>{order.customer.name}</td>
-                <td>{order.customer.phone}</td>
-                <td>{order.customer.address}</td>
+                <td>{order.customer?.name || "Không có dữ liệu"}</td>
+                <td>{order.customer?.phone || "Không có dữ liệu"}</td>
+                <td>{order.customer?.address || "Không có dữ liệu"}</td>
                 <td>{new Date(order.createdAt).toLocaleString()}</td>
                 <td>{order.status}</td>
                 <td>{order.total.toLocaleString()} VNĐ</td>
                 <td>
                   <ul className="mb-0">
-                  {order.items?.map((item) => (
-  <li key={item.id}>
-    {item.name} x {item.quantity} = {(item.price * item.quantity).toLocaleString()} VNĐ
-  </li>
-))}
-
+                    {order.items?.map((item) => (
+                      <li key={item.id}>
+                        {item.name} x {item.quantity} ={" "}
+                        {(item.price * item.quantity).toLocaleString()} VNĐ
+                      </li>
+                    ))}
                   </ul>
                 </td>
               </tr>
