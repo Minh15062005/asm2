@@ -27,6 +27,7 @@ import AdminOrders from "./pages/admin/AdminOrders";
 import HomeAdmin from "./pages/product/home";
 import LoginAdmin from "./pages/admin/login";
 import UserManagementPage from "./pages/admin/UserManagementPage";
+import TongTien from "./pages/admin/thongke";
 
 // 🔹 Bảo vệ trang Admin (Chỉ Admin mới truy cập được)
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
@@ -68,7 +69,8 @@ const App = () => {
                 <Route path="product/add" element={<Add />} />
                 <Route path="product/edit/:id" element={<Edit />} />
                 <Route path="orders" element={<AdminOrders />} />
-                <Route path="users" element={<UserManagementPage />} /> {/* ✅ Đưa trang quản lý người dùng vào Admin */}
+                <Route path="users" element={<UserManagementPage />} /> 
+                <Route path="thongke" element={<TongTien />} /> 
               </Route>
 
               {/* 🚀 Xử lý trang không tồn tại */}

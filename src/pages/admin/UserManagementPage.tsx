@@ -14,7 +14,7 @@ function UserManagementPage() {
 
   // Gọi API lấy danh sách users
   useEffect(() => {
-    axios.get<User[]>("http://localhost:5000/api/users")
+    axios.get<User[]>("http://localhost:3000/users")
       .then(response => setUsers(response.data))
       .catch(error => console.error("Lỗi tải danh sách người dùng:", error));
   }, []);
