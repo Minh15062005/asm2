@@ -36,8 +36,6 @@ function TongTien() {
         });
 
         const data = await response.json();
-
-        // Chỉ lấy đơn hàng có thông tin khách hàng
         const validOrders = data.filter((order: Order) => order.customer);
         setOrders(validOrders.reverse()); // Mới nhất lên đầu
       } catch (error) {
@@ -55,6 +53,28 @@ function TongTien() {
 
   const totalRevenue = filteredOrders.reduce((sum, o) => sum + o.total, 0);
 
+  const updateOrderStatus = async (orderId: number, newStatus: string) => {
+    try {
+      const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status: newStatus }),
+      });
+
+      const updatedOrder = await response.json();
+
+      setOrders((prevOrders) =>
+        prevOrders.map((order) =>
+          order.id === updatedOrder.id ? updatedOrder : order
+        )
+      );
+    } catch (error) {
+      console.error("Lỗi khi cập nhật trạng thái đơn hàng:", error);
+    }
+  };
+
   return (
     <div className="container mt-4 text-black">
       <h2>📊 Thống kê đơn hàng</h2>
@@ -64,10 +84,12 @@ function TongTien() {
         <select
           className="form-select w-auto"
           onChange={(e) => setFilteredStatus(e.target.value)}
+          value={filteredStatus}
         >
           <option value="Tất cả">Tất cả</option>
+          <option value="Chưa xử lý">Chưa xử lý</option>
           <option value="Đang xử lý">Đang xử lý</option>
-          <option value="Hoàn thành">Hoàn thành</option>
+          <option value="Đã hoàn thành">Đã hoàn thành</option>
           <option value="Đã hủy">Đã hủy</option>
         </select>
       </div>
@@ -76,7 +98,7 @@ function TongTien() {
         Tổng số đơn: <strong>{filteredOrders.length}</strong>
       </p>
       <p>
-        Tổng doanh thu: <strong>{totalRevenue.toLocaleString()} VNĐ</strong>
+        Doanh thu: <strong>{totalRevenue.toLocaleString()} VNĐ</strong>
       </p>
 
       <div className="table-responsive mt-4">
@@ -89,6 +111,7 @@ function TongTien() {
               <th>Địa chỉ</th>
               <th>Thời gian</th>
               <th>Trạng thái</th>
+              <th>Cập nhật trạng thái</th>
               <th>Tổng tiền</th>
               <th>Chi tiết</th>
             </tr>
@@ -102,6 +125,20 @@ function TongTien() {
                 <td>{order.customer?.address || "Không có dữ liệu"}</td>
                 <td>{new Date(order.createdAt).toLocaleString()}</td>
                 <td>{order.status}</td>
+                <td>
+                  <select
+                    className="form-select"
+                    value={order.status}
+                    onChange={(e) =>
+                      updateOrderStatus(order.id, e.target.value)
+                    }
+                  >
+                    <option value="Chưa xử lý">Chưa xử lý</option>
+                    <option value="Đang xử lý">Đang xử lý</option>
+                    <option value="Đã hoàn thành">Đã hoàn thành</option>
+                    <option value="Đã hủy">Đã hủy</option>
+                  </select>
+                </td>
                 <td>{order.total.toLocaleString()} VNĐ</td>
                 <td>
                   <ul className="mb-0">

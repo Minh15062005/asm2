@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Order } from "../interfaces/Status"; // Import interface Order
+import { Order } from "../interfaces/Status";
 
 const OrderList = () => {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -15,7 +15,7 @@ const OrderList = () => {
         });
         if (response.ok) {
           const data: Order[] = await response.json();
-          setOrders(data);
+          setOrders(data.reverse()); // Đơn hàng mới lên trước
         }
       }
     };
@@ -24,34 +24,34 @@ const OrderList = () => {
   }, []);
 
   return (
-    <div>
-      <h2 className="mt-5 text-black">📦 Đơn hàng của bạn</h2>
+    <div className="container mt-5 text-black">
+      <h2>📦 Đơn hàng của bạn</h2>
       {orders.length === 0 ? (
         <p>Chưa có đơn hàng nào!</p>
       ) : (
-        <table className="table mt-3">
-          <thead>
-            <tr>
-              <th>Mã đơn hàng</th>
-              <th>Ngày đặt</th>
-              <th>Số lượng mặt hàng</th>
-              <th>Tổng giá trị đơn hàng</th>
-              <th>Tình trạng đơn hàng</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{new Date(order.createdAt).toLocaleString()}</td>
-                <td>{order.items ? order.items.length : 0}</td>
-                <td>{order.total?.toLocaleString() || "0"} VNĐ</td>
-                <td>{order.status || "Chưa cập nhật"}</td>
-              </tr>
-            ))}
-          </tbody>
+        orders.map((order) => (
+          <div key={order.id} className="card mt-4 p-3 shadow">
+            <h5 className="mb-3">🆔 Mã đơn hàng: {order.id}</h5>
+            <p><strong>🗓️ Ngày đặt:</strong> {new Date(order.createdAt).toLocaleString()}</p>
+            <p><strong>🧑 Tên khách:</strong> {order.customer?.name || "Không có"}</p>
+            <p><strong>📞 SĐT:</strong> {order.customer?.phone || "Không có"}</p>
+            <p><strong>🏠 Địa chỉ:</strong> {order.customer?.address || "Không có"}</p>
+            <p><strong>💰 Tổng tiền:</strong> {order.total?.toLocaleString()} VNĐ</p>
+            <p><strong>📌 Trạng thái:</strong> {order.status}</p>
 
-        </table>
+            <h6 className="mt-3">🧾 Chi tiết sản phẩm:</h6>
+            <ul className="list-group">
+              {order.items?.map((item, index) => (
+                <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+                  <img src={item.thumbnail} alt={item.name} style={{ width: "50px", height: "50px" }} />
+                  <span>{item.name}</span>
+                  <span>{item.price.toLocaleString()} VNĐ</span>
+                  <span>Số lượng: {item.quantity}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
       )}
     </div>
   );

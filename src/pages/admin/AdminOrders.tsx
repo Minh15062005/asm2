@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { Order } from "../../interfaces/Order"; // Import kiểu dữ liệu Order
+import { Order } from "../../interfaces/Order";
 
 function AdminOrders() {
-  const [orders, setOrders] = useState<Order[]>([]); // Xác định kiểu dữ liệu
+  const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/orders")
       .then((res) => res.json())
       .then((data: Order[]) => {
-        console.log("Dữ liệu đơn hàng:", data); // Debug dữ liệu API
-        setOrders(data);
+        const sortedOrders = data.sort(
+          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+        console.log("Dữ liệu đơn hàng:", sortedOrders);
+        setOrders(sortedOrders);
       })
       .catch((error) => console.error("Lỗi khi lấy đơn hàng:", error));
   }, []);
@@ -61,7 +64,7 @@ function AdminOrders() {
                 <td>{order.total ? order.total.toLocaleString() : "0"} VNĐ</td>
                 <td>{order.status || "Chưa cập nhật"}</td>
                 <td>
-                 <select
+                  <select
                     value={order.status}
                     onChange={(e) => updateOrderStatus(order.id, e.target.value)}
                   >
